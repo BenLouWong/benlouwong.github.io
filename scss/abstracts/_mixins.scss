@@ -1,0 +1,31 @@
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		//https://sass-lang.com/documentation/at-rules/control/if
+		@media only screen and (min-width: 37.5em) {
+			@content;
+		} //600px
+	}
+	@if $breakpoint == tab-port {
+		//https://sass-lang.com/documentation/at-rules/control/if
+		@media only screen and (min-width: 56.25em) {
+			@content;
+		} //900px
+	}
+	@if $breakpoint == tab-landscape {
+		//https://sass-lang.com/documentation/at-rules/control/if
+		@media only screen and (min-width: 75em) {
+			@content;
+		} //1200px
+	}
+	@if $breakpoint == small-desktop {
+		@media only screen and (min-width: 75em) {
+			@content;
+		}
+	}
+	@if $breakpoint == big-desktop {
+		//https://sass-lang.com/documentation/at-rules/control/if
+		@media only screen and (min-width: 112.5em) {
+			@content;
+		} //1800px
+	}
+}

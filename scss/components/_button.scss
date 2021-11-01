@@ -1,0 +1,25 @@
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	font-size: $font-small-med;
+	color: white;
+
+	&__01 {
+		padding: 0.8rem 1.6rem;
+
+		box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		background: linear-gradient(90deg, #ff6e40 0%, #df552a 100%);
+		transition: all 0.2s ease-in-out;
+
+		&:active,
+		&:focus {
+			transform: scale(0.97);
+		}
+	}
+	&__02 {
+		color: $colour-orange-vibrant-dark;
+	}
+}

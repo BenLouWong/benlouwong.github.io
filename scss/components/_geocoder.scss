@@ -1,0 +1,26 @@
+.mapboxgl-ctrl {
+	&-geocoder {
+		display: flex;
+		align-items: center;
+
+		box-shadow: none;
+		background-color: $colour-searchBar;
+		color: $font-colour-search;
+		border-radius: 56rem;
+		height: 2.702rem;
+		width: 95%;
+		font-family: "Lato", sans-serif;
+		margin-left: 0.9rem;
+		transition: width 0.3s ease-in-out;
+
+		&--input {
+			&:focus {
+				outline: none;
+			}
+		}
+
+		&--button {
+			background: transparent;
+		}
+	}
+}

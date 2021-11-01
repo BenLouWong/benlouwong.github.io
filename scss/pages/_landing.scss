@@ -1,0 +1,51 @@
+.landingPage {
+	background-image: url(../../images/landingPage.jpg);
+	background-position: center;
+	background-size: cover;
+
+	&__container {
+		text-align: center;
+
+		&--heading01 {
+			color: $colour-navy;
+			line-height: 2.4rem;
+		}
+		&--heading02 {
+			line-height: 1.22rem;
+			padding: 1.5rem 0;
+			letter-spacing: 0.05em;
+			// font-weight: 600;
+		}
+	}
+
+	&__contact {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 15.83rem;
+		height: 2.64rem;
+		border: none;
+		background: #ffffff;
+		box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		&--form {
+			outline: none;
+			border: none;
+			width: 12.1rem;
+
+			&::placeholder {
+				font-size: $font-small;
+				color: $font-colour-search-2;
+			}
+		}
+
+		&--submit {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: $colour-navy;
+			font-size: $font-med;
+		}
+	}
+}
