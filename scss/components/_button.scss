@@ -23,3 +23,24 @@
 		color: $colour-orange-vibrant-dark;
 	}
 }
+
+.sidebar__menu--button {
+	text-decoration: none;
+	color: $colour-navy;
+}
+
+.backArrow {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: $colour-navy;
+
+	font-size: $font-med-large;
+	margin-right: 1.2rem;
+	background-color: $colour-backArrow;
+	height: 3rem;
+	width: 3rem;
+	border-radius: 50%;
+	box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}

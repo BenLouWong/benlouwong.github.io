@@ -35,3 +35,15 @@ section {
 	overflow: hidden;
 	padding: 3rem;
 }
+
+.divider {
+	height: 2px;
+	width: 100%;
+	background-color: $colour-divider;
+	margin: 1.5rem 0;
+}
+
+.paragraph {
+	color: $font-colour-primary;
+	font-size: $font-small;
+}

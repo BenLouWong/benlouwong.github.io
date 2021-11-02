@@ -1,0 +1,9 @@
+.about {
+	&__container {
+		justify-content: flex-start;
+
+		& h1 {
+			font-weight: 400;
+		}
+	}
+}

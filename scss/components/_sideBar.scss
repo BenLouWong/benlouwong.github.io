@@ -10,13 +10,15 @@
 
 	height: 100vh;
 	width: 0;
+
+	// width: 19rem;
 	background-color: white;
-	transition: all 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+	transition: all 0.3s ease-in-out;
 
 	&__active {
 		visibility: visible;
 		opacity: 1;
-		width: 21rem;
+		width: 19rem;
 	}
 
 	&__banner {
@@ -51,6 +53,34 @@
 		&--active {
 			visibility: visible;
 			opacity: 1;
+		}
+	}
+	&__menu {
+		margin-top: 1rem;
+		&--imgCont {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 2.5rem;
+			height: 2.5rem;
+			margin-right: 1.3rem;
+			overflow: hidden;
+			font-size: $font-med-large;
+			color: $colour-orange-vibrant-dark;
+			& img {
+				width: auto;
+				height: 100%;
+			}
+		}
+		&--btn {
+			padding: 1.1rem 2.5rem;
+			justify-content: flex-start;
+			transition: background-color 0.3s ease;
+
+			&:active,
+			&:hover {
+				background-color: $colour-searchBar;
+			}
 		}
 	}
 }
