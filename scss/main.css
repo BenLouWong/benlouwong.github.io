@@ -73,8 +73,8 @@ body {
 section {
   height: 100vh;
   width: 100%;
-  overflow: hidden;
-  padding: 3rem;
+  overflow-x: hidden;
+  padding: 2rem;
 }
 
 .divider {
@@ -98,11 +98,13 @@ section {
 .heading-2 {
   font-size: 1.2222rem;
   font-weight: 400;
+  color: #1e3d59;
 }
 
 .heading-3 {
   font-size: 1rem;
   font-weight: 400;
+  color: #1e3d59;
 }
 
 .heading-4 {
@@ -170,6 +172,11 @@ section {
   border-radius: 50%;
   -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.simpleBtn {
+  color: #df552a;
+  text-decoration: none;
 }
 
 .mapboxgl-ctrl-geocoder {
@@ -368,6 +375,18 @@ section {
 
 .about__container h1 {
   font-weight: 400;
+}
+
+.about__imgCont {
+  height: 12.5rem;
+  width: auto;
+  max-width: 100%;
+  padding-bottom: 1.5rem;
+}
+
+.about__imgCont img {
+  height: 100%;
+  width: auto;
 }
 
 .landingPage {

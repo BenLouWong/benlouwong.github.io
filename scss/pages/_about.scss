@@ -6,4 +6,14 @@
 			font-weight: 400;
 		}
 	}
+	&__imgCont {
+		height: 12.5rem;
+		width: auto;
+		max-width: 100%;
+		padding-bottom: 1.5rem;
+		& img {
+			height: 100%;
+			width: auto;
+		}
+	}
 }
