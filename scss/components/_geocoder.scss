@@ -7,7 +7,7 @@
 		background-color: $colour-searchBar;
 		color: $font-colour-search;
 		border-radius: 56rem;
-		height: 2.702rem;
+		height: 2.2rem;
 		width: 93%;
 		font-family: "Lato", sans-serif;
 		margin-left: 0.5rem;
@@ -22,5 +22,13 @@
 		&--button {
 			background: transparent;
 		}
+		&--icon-search {
+			top: 25%;
+		}
 	}
+}
+
+.geocoder {
+	display: flex;
+	align-items: center;
 }

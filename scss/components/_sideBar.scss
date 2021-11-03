@@ -84,3 +84,21 @@
 		}
 	}
 }
+
+.contribution {
+	position: absolute;
+	bottom: 2%;
+	left: 9.5rem;
+	transform: translateX(-50%);
+	& a {
+		text-decoration: none;
+		color: $font-colour-primary;
+	}
+}
+
+.creditsPara {
+	& a {
+		text-decoration: none;
+		color: $font-colour-primary;
+	}
+}
