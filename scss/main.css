@@ -449,13 +449,8 @@ section {
   width: auto;
 }
 
-.landingPage {
-  background-image: url(../../images/landingPage.jpg);
-  background-position: center;
-  background-size: cover;
-}
-
 .landingPage__container {
+  z-index: 2000000;
   text-align: center;
 }
 
@@ -470,7 +465,13 @@ section {
   letter-spacing: 0.05em;
 }
 
-.landingPage__contact {
+.landingPage__overlay {
+  overflow: hidden;
+  position: absolute;
+  -webkit-filter: opacity(0.6);
+          filter: opacity(0.6);
+  height: 100vh;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -480,52 +481,12 @@ section {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 15.83rem;
-  height: 2.64rem;
-  border: none;
-  background: #ffffff;
-  -webkit-box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
 }
 
-.landingPage__contact--form {
-  outline: none;
-  border: none;
-  width: 12.1rem;
-}
-
-.landingPage__contact--form::-webkit-input-placeholder {
-  font-size: 0.8rem;
-  color: #979797;
-}
-
-.landingPage__contact--form:-ms-input-placeholder {
-  font-size: 0.8rem;
-  color: #979797;
-}
-
-.landingPage__contact--form::-ms-input-placeholder {
-  font-size: 0.8rem;
-  color: #979797;
-}
-
-.landingPage__contact--form::placeholder {
-  font-size: 0.8rem;
-  color: #979797;
-}
-
-.landingPage__contact--submit {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: #1e3d59;
-  font-size: 1.2222rem;
+.landingPage__overlay img {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+  width: auto;
+  height: 100vh;
 }
 /*# sourceMappingURL=main.css.map */
