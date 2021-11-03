@@ -4,6 +4,7 @@ const hamburger = document.querySelector(".searchBar__hamburger");
 const closeHam = document.querySelector(".sidebar__close");
 const sidebar = document.querySelector(".sidebar");
 const sidebarOverlay = document.querySelector(".sidebar__overlay");
+const preLoadCont = document.querySelector(".loader__container");
 const defaultPos = [151.2057150002948, -33.87303520459041];
 
 const stores = {
@@ -39,6 +40,36 @@ const stores = {
 				state: "NSW",
 			},
 		},
+		{
+			type: "Feature",
+			geometry: {
+				type: "Point",
+				coordinates: [151.2053977942415, -33.865536805070235],
+			},
+			properties: {
+				title: "Normcore Coffee",
+				address: "Shop 1/37 York St",
+				city: "Sydney",
+				country: "Australia",
+				postalCode: "2000",
+				state: "NSW",
+			},
+		},
+		{
+			type: "Feature",
+			geometry: {
+				type: "Point",
+				coordinates: [151.20964326707173, -33.88097863465398],
+			},
+			properties: {
+				title: "Single O",
+				address: "60-64 Reservoir St",
+				city: "Surry Hills",
+				country: "Australia",
+				postalCode: "2010",
+				state: "NSW",
+			},
+		},
 	],
 };
 
@@ -49,7 +80,7 @@ stores.features.forEach((store, i) => {
 mapboxgl.accessToken =
 	"pk.eyJ1IjoiYmVubHciLCJhIjoiY2t2N2p1YTQ4OWtsbzJwbWFxbGlxeTR5aSJ9.h-C9wZFdtTINvHwcJXKfMg";
 
-// Side navigation functionality
+// ////////////// Side navigation functionality
 const openMenu = function () {
 	sidebar.classList.add("sidebar__active");
 	sidebarOverlay.classList.add("sidebar__overlay--active");
@@ -62,6 +93,12 @@ const closeMenu = function () {
 
 hamburger.addEventListener("click", openMenu);
 closeHam.addEventListener("click", closeMenu);
+
+// ////////////// Preloader
+
+const preLoadClose = function () {
+	preLoadCont.classList.add("loader__container--hidden");
+};
 
 // ////////////// Loading the map
 
@@ -172,6 +209,7 @@ const setupMap = function (center) {
 		addCafe();
 		addStart();
 		addMarkers();
+		setTimeout(preLoadClose);
 	};
 
 	map.on("load", mapFunctions);

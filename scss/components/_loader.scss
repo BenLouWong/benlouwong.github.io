@@ -1,0 +1,28 @@
+.loader {
+	&__container {
+		height: 100vh;
+		width: 100vw;
+		background-color: $colour-searchBar;
+		transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+		&--image {
+			position: absolute;
+			top: 47%;
+			left: 50%;
+			width: 10px;
+			transform: translate(-50%, -60%);
+
+			width: auto;
+			height: 20%;
+
+			& img {
+				width: auto;
+				height: 100%;
+			}
+		}
+		&--hidden {
+			height: 0;
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+}
