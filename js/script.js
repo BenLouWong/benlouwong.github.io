@@ -89,7 +89,7 @@ const setupMap = function (center) {
 		const popup = new mapboxgl.Popup({ closeOnClick: false })
 			.setLngLat(currentFeature.geometry.coordinates)
 			.setHTML(
-				`<h3 class='heading-2'>${currentFeature.properties.title}</h3><h4 class='heading-3'>${currentFeature.properties.address}</h4>`
+				`<h3 class='heading-3'>${currentFeature.properties.title}</h3><h4 class='heading-4'>${currentFeature.properties.address}</h4>`
 			)
 			.addTo(map);
 	};
@@ -144,7 +144,7 @@ const setupMap = function (center) {
 		addCafe();
 		addStart();
 		addMarkers();
-		setTimeout(preLoadClose, 2000);
+		setTimeout(preLoadClose, 3000);
 	};
 
 	map.on("load", mapFunctions);
