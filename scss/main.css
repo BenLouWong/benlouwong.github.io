@@ -291,8 +291,33 @@ section {
 }
 
 .mapboxgl-popup-close-button {
-  padding: 0.2rem;
-  border: none;
+  padding-right: 0.4rem;
+  padding-top: 0.3rem;
+  outline: none;
+}
+
+.mapboxgl-popup-content {
+  border-radius: 5%;
+  padding: 0;
+  -webkit-box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+  background: -webkit-gradient(linear, left top, right bottom, from(#ffc13b), to(#df552a));
+  background: linear-gradient(to right bottom, #ffc13b 0%, #df552a 100%);
+}
+
+.mapboxgl-popup-content h3 {
+  border-radius: 5% 5% 0 0;
+  margin: 0;
+  padding: 1rem 1rem 0 1rem;
+  font-weight: 700;
+}
+
+.mapboxgl-popup-content h4 {
+  padding: 1rem;
+}
+
+.mapboxgl-popup-tip {
+  display: none;
 }
 
 .searchBar {

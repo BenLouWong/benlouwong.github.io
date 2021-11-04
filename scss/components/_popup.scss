@@ -1,4 +1,29 @@
-.mapboxgl-popup-close-button {
-	padding: 0.2rem;
-	border: none;
+.mapboxgl-popup {
+	&-close-button {
+		padding-right: 0.4rem;
+		padding-top: 0.3rem;
+		outline: none;
+	}
+	&-content {
+		border-radius: 5%;
+		padding: 0;
+		box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+		background: linear-gradient(
+			to right bottom,
+			$colour-gold 0%,
+			$colour-orange-vibrant-dark 100%
+		);
+		& h3 {
+			border-radius: 5% 5% 0 0;
+			margin: 0;
+			padding: 1rem 1rem 0 1rem;
+			// font-weight: 700;
+		}
+		& h4 {
+			padding: 1rem;
+		}
+	}
+	&-tip {
+		display: none;
+	}
 }

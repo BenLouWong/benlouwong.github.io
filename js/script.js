@@ -7,71 +7,7 @@ const sidebarOverlay = document.querySelector(".sidebar__overlay");
 const preLoadCont = document.querySelector(".loader__container");
 const defaultPos = [151.2057150002948, -33.87303520459041];
 
-const stores = {
-	type: "FeatureCollection",
-	features: [
-		{
-			type: "Feature",
-			geometry: {
-				type: "Point",
-				coordinates: [151.1550074469862, -33.755056531730645],
-			},
-			properties: {
-				title: "The Wyatt",
-				address: "77 Werona Ave, Gordon",
-				city: "Sydney",
-				country: "Australia",
-				postalCode: "2072",
-				state: "NSW",
-			},
-		},
-		{
-			type: "Feature",
-			geometry: {
-				type: "Point",
-				coordinates: [151.15393561298666, -33.7560608225008],
-			},
-			properties: {
-				title: "Pure Brew",
-				address: "1/3 St Johns Ave, Gordon",
-				city: "Sydney",
-				country: "Australia",
-				postalCode: "2072",
-				state: "NSW",
-			},
-		},
-		{
-			type: "Feature",
-			geometry: {
-				type: "Point",
-				coordinates: [151.2053977942415, -33.865536805070235],
-			},
-			properties: {
-				title: "Normcore Coffee",
-				address: "Shop 1/37 York St",
-				city: "Sydney",
-				country: "Australia",
-				postalCode: "2000",
-				state: "NSW",
-			},
-		},
-		{
-			type: "Feature",
-			geometry: {
-				type: "Point",
-				coordinates: [151.20964326707173, -33.88097863465398],
-			},
-			properties: {
-				title: "Single O",
-				address: "60-64 Reservoir St",
-				city: "Surry Hills",
-				country: "Australia",
-				postalCode: "2010",
-				state: "NSW",
-			},
-		},
-	],
-};
+/////////////// Stores data within the storeData.js file
 
 stores.features.forEach((store, i) => {
 	store.properties.id = i;
@@ -153,7 +89,7 @@ const setupMap = function (center) {
 		const popup = new mapboxgl.Popup({ closeOnClick: false })
 			.setLngLat(currentFeature.geometry.coordinates)
 			.setHTML(
-				`<h3 class='heading-3'>${currentFeature.properties.title}</h3><h4>${currentFeature.properties.address}</h4>`
+				`<h3 class='heading-2'>${currentFeature.properties.title}</h3><h4 class='heading-3'>${currentFeature.properties.address}</h4>`
 			)
 			.addTo(map);
 	};
@@ -171,7 +107,6 @@ const setupMap = function (center) {
 			const el = document.createElement("div");
 			/* Assign a unique `id` to the marker. */
 			el.id = `markerCafe-${marker.properties.id}`;
-			console.log(el.id);
 			/* Assign the `marker` class to each marker for styling. */
 			el.className = "markerCafe";
 
@@ -209,7 +144,7 @@ const setupMap = function (center) {
 		addCafe();
 		addStart();
 		addMarkers();
-		setTimeout(preLoadClose);
+		setTimeout(preLoadClose, 2000);
 	};
 
 	map.on("load", mapFunctions);
