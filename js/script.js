@@ -47,10 +47,8 @@ const createCard = function (currentFeature) {
                 "
                 data-btn="1"
             >
-                <div class="cardBtn__direction--line"></div>
-                <div class="cardBtn__direction--line"></div>
-                <div class="cardBtn__direction--line"></div>
-                <div class="cardBtn__direction--line"></div>
+                <div class="cardBtn__direction--arrow">⮦</div>
+                
             </button>
 
             <button

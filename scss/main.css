@@ -206,40 +206,11 @@ section {
   background-color: #df552a;
 }
 
-.cardBtn__direction--line {
-  position: absolute;
-  width: 0.7rem;
-  height: 2px;
-  background-color: #f5f0e1;
-}
-
-.cardBtn__direction--line:first-child {
-  left: 10%;
-  bottom: 50%;
-  -webkit-transform: translate(30%, 0);
-          transform: translate(30%, 0);
+.cardBtn__direction--arrow {
+  color: #f5f0e1;
+  -webkit-transform: scale(1.6) scaleY(-1);
+          transform: scale(1.6) scaleY(-1);
   rotate: 90deg;
-}
-
-.cardBtn__direction--line:nth-child(2) {
-  width: 0.85rem;
-  -webkit-transform: translate(10%, -150%);
-          transform: translate(10%, -150%);
-}
-
-.cardBtn__direction--line:nth-child(3) {
-  width: 0.4rem;
-  -webkit-transform: translate(-10%, -350%);
-          transform: translate(-10%, -350%);
-  rotate: 45deg;
-}
-
-.cardBtn__direction--line:last-child {
-  width: 0.4rem;
-  left: 50%;
-  -webkit-transform: translate(0, -60%);
-          transform: translate(0, -60%);
-  rotate: 135deg;
 }
 
 .cardBtn__fav, .cardBtn__more {
