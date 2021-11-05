@@ -53,11 +53,26 @@ const stores = {
 				coordinates: [151.20964326707173, -33.88097863465398],
 			},
 			properties: {
-				title: "Single O",
+				title: "Single O Cafe",
 				address: "60-64 Reservoir St",
 				city: "Surry Hills",
 				country: "Australia",
 				postalCode: "2010",
+				state: "NSW",
+			},
+		},
+		{
+			type: "Feature",
+			geometry: {
+				type: "Point",
+				coordinates: [151.2091479999965, -33.871942476356374],
+			},
+			properties: {
+				title: "Pablo & Rusty's",
+				address: "161 Castlereagh St",
+				city: "Sydney",
+				country: "Australia",
+				postalCode: "2000",
 				state: "NSW",
 			},
 		},

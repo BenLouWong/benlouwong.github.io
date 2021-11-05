@@ -184,6 +184,173 @@ section {
   text-decoration: none;
 }
 
+.cardBtn {
+  border: none;
+  cursor: pointer;
+  width: 32.54px;
+  height: 32.54px;
+  border-radius: 50%;
+}
+
+.cardBtn:not(:last-child) {
+  margin-right: 1.2rem;
+}
+
+.cardBtn:hover {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+}
+
+.cardBtn__direction {
+  position: relative;
+  background-color: #df552a;
+}
+
+.cardBtn__direction--line {
+  position: absolute;
+  width: 0.7rem;
+  height: 2px;
+  background-color: #f5f0e1;
+}
+
+.cardBtn__direction--line:first-child {
+  left: 10%;
+  bottom: 50%;
+  -webkit-transform: translate(30%, 0);
+          transform: translate(30%, 0);
+  rotate: 90deg;
+}
+
+.cardBtn__direction--line:nth-child(2) {
+  width: 0.85rem;
+  -webkit-transform: translate(10%, -150%);
+          transform: translate(10%, -150%);
+}
+
+.cardBtn__direction--line:nth-child(3) {
+  width: 0.4rem;
+  -webkit-transform: translate(-10%, -350%);
+          transform: translate(-10%, -350%);
+  rotate: 45deg;
+}
+
+.cardBtn__direction--line:last-child {
+  width: 0.4rem;
+  left: 50%;
+  -webkit-transform: translate(0, -60%);
+          transform: translate(0, -60%);
+  rotate: 135deg;
+}
+
+.cardBtn__fav, .cardBtn__more {
+  background-color: #1e3d59;
+}
+
+.cardBtn__fav {
+  position: relative;
+}
+
+.cardBtn__fav--line {
+  background-color: #f5f0e1;
+  width: 0.8rem;
+  height: 0.11rem;
+}
+
+.cardBtn__fav--line-02 {
+  position: absolute;
+  -webkit-transform: translateY(-25%);
+          transform: translateY(-25%);
+  rotate: 90deg;
+}
+
+.cardBtn__more--dot {
+  background-color: #f5f0e1;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+}
+
+.cardBtn__more--dot:not(:last-child) {
+  margin-right: 0.15rem;
+}
+
+.card {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: absolute;
+  background-color: #f5f0e1;
+  z-index: 110;
+  width: 90%;
+  height: 10rem;
+  -webkit-transform: translate(-50%, -20%);
+          transform: translate(-50%, -20%);
+  left: 50%;
+  -webkit-box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  opacity: 0;
+  visibility: hidden;
+  bottom: -2%;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.card__img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 45%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.card__img img {
+  width: auto;
+  height: inherit;
+}
+
+.card__content {
+  padding-left: 1rem;
+}
+
+.card__heading {
+  padding-bottom: 0.4rem;
+}
+
+.card__heading--main {
+  font-weight: 700;
+}
+
+.card__heading--sub {
+  color: #979797;
+}
+
+.card__rating--star {
+  color: #ffc13b;
+  padding-right: 0.2rem;
+}
+
+.card__buttons {
+  padding-top: 1rem;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.card__active {
+  bottom: 1%;
+  opacity: 1;
+  visibility: visible;
+}
+
 .mapboxgl-ctrl-geocoder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -197,7 +364,7 @@ section {
   color: #c0c0c0;
   border-radius: 56rem;
   height: 2.5rem;
-  width: 93%;
+  width: 100%;
   font-family: "Lato", sans-serif;
   margin-left: 0.5rem;
   -webkit-transition: width 0.3s ease-in-out;
@@ -225,6 +392,7 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 82%;
 }
 
 .loader__container {
@@ -301,8 +469,8 @@ section {
   padding: 0;
   -webkit-box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
-  background: -webkit-gradient(linear, left top, right bottom, from(#ffc13b), to(#df552a));
-  background: linear-gradient(to right bottom, #ffc13b 0%, #df552a 100%);
+  background: -webkit-gradient(linear, left top, right bottom, from(#f0c094), to(#e2aa76));
+  background: linear-gradient(to bottom right, #f0c094 0%, #e2aa76 100%);
 }
 
 .mapboxgl-popup-content h3 {

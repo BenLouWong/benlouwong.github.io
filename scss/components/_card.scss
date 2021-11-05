@@ -1,0 +1,66 @@
+.card {
+	justify-content: flex-start;
+	position: absolute;
+	background-color: $colour-backArrow;
+	z-index: 110;
+	width: 90%;
+	height: 10rem;
+	transform: translate(-50%, -20%);
+
+	left: 50%;
+	box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+
+	opacity: 0;
+	visibility: hidden;
+	bottom: -2%;
+
+	transition: all 0.5s ease-in-out;
+
+	&__img {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 45%;
+		height: 100%;
+		overflow: hidden;
+		border-radius: 15px 0px 0px 15px;
+
+		& img {
+			width: auto;
+			height: inherit;
+		}
+	}
+
+	&__content {
+		padding-left: 1rem;
+	}
+
+	&__heading {
+		padding-bottom: 0.4rem;
+		&--main {
+			font-weight: 700;
+		}
+		&--sub {
+			color: $font-colour-search-2;
+		}
+	}
+
+	&__rating {
+		&--star {
+			color: $colour-gold;
+			padding-right: 0.2rem;
+		}
+	}
+
+	&__buttons {
+		padding-top: 1rem;
+		justify-content: flex-start;
+	}
+
+	&__active {
+		bottom: 1%;
+		opacity: 1;
+		visibility: visible;
+	}
+}

@@ -5,7 +5,90 @@ const closeHam = document.querySelector(".sidebar__close");
 const sidebar = document.querySelector(".sidebar");
 const sidebarOverlay = document.querySelector(".sidebar__overlay");
 const preLoadCont = document.querySelector(".loader__container");
+const card = document.querySelector(".card");
+const cardImg = document.querySelector(".card__img");
+const cardContent = document.getElementById("card__content");
+const cardActive = document.querySelector(".card__active");
+const cardBtn = document.querySelectorAll(".cardBtn");
 const defaultPos = [151.2057150002948, -33.87303520459041];
+
+const createCard = function (currentFeature) {
+	card.classList.add("card__active");
+	let html = `
+    <h3 class="heading-3 card__heading card__heading--main">
+        ${currentFeature.properties.title}
+        </h3>
+        <h4 class="heading-4 card__heading card__heading--sub">
+        ${currentFeature.properties.address}
+        </h4>
+        <div class="card__rating flex">
+            <ion-icon
+                name="star"
+                class="card__rating--star"
+            ></ion-icon>
+            <ion-icon
+                name="star"
+                class="card__rating--star"
+            ></ion-icon>
+            <ion-icon
+                name="star"
+                class="card__rating--star"
+            ></ion-icon>
+            <ion-icon
+                name="star"
+                class="card__rating--star"
+            ></ion-icon>
+        </div>
+        <div class="card__buttons flex flex__ai-center">
+            <button
+                class="
+                    cardBtn cardBtn__direction
+                    flex flex__ai-center flex__jc-center
+                "
+                data-btn="1"
+            >
+                <div class="cardBtn__direction--line"></div>
+                <div class="cardBtn__direction--line"></div>
+                <div class="cardBtn__direction--line"></div>
+                <div class="cardBtn__direction--line"></div>
+            </button>
+
+            <button
+                class="
+                    cardBtn cardBtn__fav
+                    flex flex__ai-center flex__jc-center
+                "
+                data-btn="2"
+            >
+                <div class="cardBtn__fav--line"></div>
+                <div
+                    class="cardBtn__fav--line cardBtn__fav--line-02"
+                ></div>
+            </button>
+            <button
+                class="
+                    cardBtn cardBtn__more
+                    flex flex__ai-center flex__jc-center
+                "
+                data-btn="3"
+            >
+                <div class="cardBtn__more--dot"></div>
+                <div class="cardBtn__more--dot"></div>
+                <div class="cardBtn__more--dot"></div>
+            </button>
+        </div>`;
+	cardContent.innerHTML = html;
+};
+const closeCard = function () {
+	card.classList.remove("card__active");
+};
+
+const testBtn = cardBtn.forEach(function (e) {
+	const dataId = e.dataset.btn;
+	e.addEventListener("click", function () {
+		console.log(dataId);
+	});
+});
 
 /////////////// Stores data within the storeData.js file
 
@@ -92,6 +175,10 @@ const setupMap = function (center) {
 				`<h3 class='heading-3'>${currentFeature.properties.title}</h3><h4 class='heading-4'>${currentFeature.properties.address}</h4>`
 			)
 			.addTo(map);
+
+		popup.on("close", () => {
+			closeCard();
+		});
 	};
 
 	const flyTo = function (currentFeature) {
@@ -107,6 +194,7 @@ const setupMap = function (center) {
 			const el = document.createElement("div");
 			/* Assign a unique `id` to the marker. */
 			el.id = `markerCafe-${marker.properties.id}`;
+			console.log(`${marker.properties.id}`);
 			/* Assign the `marker` class to each marker for styling. */
 			el.className = "markerCafe";
 
@@ -114,9 +202,10 @@ const setupMap = function (center) {
 				.setLngLat(marker.geometry.coordinates)
 				.addTo(map);
 
-			el.addEventListener("click", function (e) {
+			el.addEventListener("click", function () {
 				flyTo(marker);
 				createPopups(marker);
+				createCard(marker);
 			});
 		}
 	};
@@ -144,10 +233,11 @@ const setupMap = function (center) {
 		addCafe();
 		addStart();
 		addMarkers();
-		setTimeout(preLoadClose, 3000);
+		setTimeout(preLoadClose);
 	};
 
 	map.on("load", mapFunctions);
+	// map.on("click", closeCard);
 };
 
 navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
