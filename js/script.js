@@ -39,7 +39,7 @@ const createCard = function (currentFeature) {
                 class="card__rating--star"
             ></ion-icon>
         </div>
-        <div class="card__buttons flex flex__ai-center">
+        <div class="card__buttons flex flex__ai-center flex__jc-center">
             <button
                 class="
                     cardBtn cardBtn__direction
@@ -47,8 +47,10 @@ const createCard = function (currentFeature) {
                 "
                 data-btn="1"
             >
-                <div class="cardBtn__direction--arrow">⮦</div>
-                
+                <div class="cardBtn__direction--line"></div>
+                <div class="cardBtn__direction--line"></div>
+                <div class="cardBtn__direction--line"></div>
+                <div class="cardBtn__direction--line"></div>
             </button>
 
             <button

@@ -15,7 +15,7 @@
 	visibility: hidden;
 	bottom: -2%;
 
-	transition: all 0.5s ease-in-out;
+	transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 	&__img {
 		display: flex;
@@ -33,7 +33,7 @@
 	}
 
 	&__content {
-		padding-left: 1rem;
+		padding: 0 1rem;
 	}
 
 	&__heading {

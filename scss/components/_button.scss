@@ -72,10 +72,34 @@
 		position: relative;
 		background-color: $colour-orange-vibrant-dark;
 
-		&--arrow {
-			color: $colour-backArrow;
-			transform: scale(1.6) scaleY(-1);
-			rotate: 90deg;
+		&--line {
+			position: absolute;
+			width: 0.7rem;
+			height: 2px;
+			background-color: $colour-backArrow;
+
+			&:first-child {
+				left: 10%;
+				bottom: 50%;
+				transform: translate(30%, 0);
+				rotate: 90deg;
+			}
+			&:nth-child(2) {
+				width: 0.85rem;
+				transform: translate(3%, -150%);
+			}
+			&:nth-child(3) {
+				width: 0.4rem;
+				transform: translate(-30%, -240%);
+				rotate: 45deg;
+				left: 50%;
+			}
+			&:last-child {
+				width: 0.4rem;
+				left: 50%;
+				transform: translate(-25%, -50%);
+				rotate: 135deg;
+			}
 		}
 	}
 
