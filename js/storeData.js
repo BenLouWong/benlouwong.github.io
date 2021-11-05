@@ -9,11 +9,12 @@ const stores = {
 			},
 			properties: {
 				title: "The Wyatt",
-				address: "77 Werona Ave, Gordon",
-				city: "Sydney",
+				address: "77 Werona Ave",
+				city: "Gordon",
 				country: "Australia",
 				postalCode: "2072",
 				state: "NSW",
+				rating: "4",
 			},
 		},
 		{
@@ -24,11 +25,12 @@ const stores = {
 			},
 			properties: {
 				title: "Pure Brew",
-				address: "1/3 St Johns Ave, Gordon",
-				city: "Sydney",
+				address: "1/3 St Johns Ave",
+				city: "Gordon",
 				country: "Australia",
 				postalCode: "2072",
 				state: "NSW",
+				rating: "4",
 			},
 		},
 		{
@@ -44,6 +46,7 @@ const stores = {
 				country: "Australia",
 				postalCode: "2000",
 				state: "NSW",
+				rating: "4",
 			},
 		},
 		{
@@ -59,6 +62,7 @@ const stores = {
 				country: "Australia",
 				postalCode: "2010",
 				state: "NSW",
+				rating: "4",
 			},
 		},
 		{
@@ -74,6 +78,23 @@ const stores = {
 				country: "Australia",
 				postalCode: "2000",
 				state: "NSW",
+				rating: "4",
+			},
+		},
+		{
+			type: "Feature",
+			geometry: {
+				type: "Point",
+				coordinates: [151.18082123972795, -33.79627831865352],
+			},
+			properties: {
+				title: "The Steam Engine",
+				address: "25/436 Victoria Ave",
+				city: "Chatswood",
+				country: "Australia",
+				postalCode: "2067",
+				state: "NSW",
+				rating: "4",
 			},
 		},
 	],
