@@ -1,0 +1,84 @@
+.directions-control-instructions,
+.mapbox-directions-profile,
+.geocoder-pin-right,
+.directions-icon-reverse {
+	display: none;
+}
+
+.directions {
+	&__cont {
+		position: fixed;
+		left: 50%;
+		// top: 3%;
+		transform: translateX(-50%);
+
+		padding: 0.7rem;
+
+		background: #ffffff;
+		box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		z-index: 110;
+		width: 93%;
+		visibility: hidden;
+		opacity: 0;
+		top: 6%;
+		transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+		&--active {
+			top: 3%;
+			opacity: 1;
+			visibility: visible;
+		}
+
+		&--box {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			padding-left: 0.5rem;
+		}
+	}
+
+	&__icons {
+		height: 100%;
+	}
+
+	&__icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		& img {
+			height: auto;
+			width: 100%;
+		}
+	}
+	&__dot {
+		border: none;
+		width: 0.2rem;
+		height: 0.2rem;
+		margin: 0.2rem;
+		border-radius: 50%;
+		background-color: $font-colour-search;
+	}
+}
+
+.mapbox-directions {
+	&-origin {
+		margin-bottom: 0.6rem;
+	}
+
+	&-origin,
+	&-destination {
+		& input {
+			font-size: $font-small;
+			color: $font-colour-search-2;
+			border: none;
+			background: transparent;
+			margin-left: 1.5rem;
+
+			&:focus {
+				outline: none;
+			}
+		}
+		margin-left: 0.5rem;
+	}
+}

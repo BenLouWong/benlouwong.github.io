@@ -8,9 +8,8 @@
 		color: $font-colour-search;
 		border-radius: 56rem;
 		height: 2.5rem;
-		width: 100%;
 		font-family: "Lato", sans-serif;
-		margin-left: 0.5rem;
+		// margin-left: 0.5rem;
 		transition: width 0.3s ease-in-out;
 
 		&--input {
@@ -20,7 +19,7 @@
 		}
 
 		&--button {
-			background: transparent;
+			background-color: transparent;
 			transform: translateY(-4px);
 		}
 		&--icon {
@@ -34,5 +33,5 @@
 .geocoder {
 	display: flex;
 	align-items: center;
-	width: 82%;
+	width: 78%;
 }

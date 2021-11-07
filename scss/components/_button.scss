@@ -47,6 +47,19 @@
 	&:focus {
 		transform: scale(0.97);
 	}
+
+	&__directions {
+		position: absolute;
+		left: 3%;
+		top: 8%;
+		height: fit-content;
+		width: fit-content;
+		cursor: pointer;
+		border: none;
+		background-color: transparent;
+		box-shadow: none;
+		font-size: $font-small-med;
+	}
 }
 
 .simpleBtn {

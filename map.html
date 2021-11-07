@@ -16,12 +16,19 @@
 			href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
 			rel="stylesheet"
 		/>
+
 		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script>
 		<link
 			rel="stylesheet"
 			href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
 			type="text/css"
 		/>
+		<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+		<!-- <link
+			rel="stylesheet"
+			href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+			type="text/css"
+		/> -->
 		<link rel="stylesheet" href="scss/main.css" />
 	</head>
 	<body>
@@ -123,9 +130,40 @@
 				</div>
 			</div>
 			<div class="sidebar__overlay"></div>
+			<div class="directions__cont flex flex__ai-center flex__jc-center">
+				<button class="backArrow backArrow__directions">
+					<ion-icon name="arrow-back"></ion-icon>
+				</button>
+
+				<div id="directionsBox" class="directions__cont--box">
+					<div
+						class="
+							directions__icons
+							flex flex__dir-col flex__ai-center flex__jc-center
+						"
+					>
+						<div class="directions__icon">
+							<img
+								src="icons/location.png"
+								alt="locationMap"
+								class="directions__iconOrig"
+							/>
+						</div>
+						<hr class="directions__dot" />
+						<hr class="directions__dot" />
+						<hr class="directions__dot" />
+						<div class="directions__icon">
+							<img
+								src="icons/coffeeMap.png"
+								alt="coffeeMap"
+								class="directions__iconDest"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
 		</header>
 		<main>
-			<div id="map"></div>
 			<div class="card flex flex__ai-center">
 				<div class="card__img">
 					<img
@@ -201,6 +239,7 @@
 					</div>
 				</div>
 			</div>
+			<div id="map"></div>
 		</main>
 		<footer></footer>
 		<script src="js/storeData.js"></script>

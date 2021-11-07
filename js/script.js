@@ -8,11 +8,17 @@ const preLoadCont = document.querySelector(".loader__container");
 const searchBar = document.querySelector(".searchBar");
 const card = document.querySelector(".card");
 const cardContent = document.getElementById("card__content");
-const cardActive = document.querySelector(".card__active");
 const cardBtn = document.querySelectorAll(".cardBtn");
 const defaultPos = [151.2057150002948, -33.87303520459041];
+const btnDirect = document.querySelector(".cardBtn__direction");
+const btnFav = document.querySelector(".cardBtn__fav");
+const btnMore = document.querySelector(".cardBtn__more");
+const directionsCont = document.querySelector(".directions__cont");
+const directionsBack = document.querySelector(".backArrow__directions");
+
 let html;
 
+// ////////////// Information Card
 const createCard = function (currentFeature) {
 	card.classList.add("card__active");
 	html = `
@@ -29,12 +35,8 @@ const createCard = function (currentFeature) {
 const closeCard = function () {
 	card.classList.remove("card__active");
 };
-const loadSearchBar = function () {
-	searchBar.classList.add("searchBar__active");
-};
 
-/////////////// Stores data within the storeData.js file
-
+/////////////// Store data within the storeData.js file
 stores.features.forEach((store, i) => {
 	store.properties.id = i;
 });
@@ -62,10 +64,34 @@ const preLoadClose = function () {
 	preLoadCont.classList.add("loader__container--hidden");
 };
 
+// ////////////// Geocoder
+const geocoder = new MapboxGeocoder({
+	// Initialize the geocoder
+	accessToken: mapboxgl.accessToken, // Set the access token
+	setRouting: true,
+	mapboxgl: mapboxgl, // Set the mapbox-gl instance
+	marker: false, // Do not use the default marker style
+	placeholder: "Enter Suburb",
+	zoom: 13,
+});
+const loadSearchBar = function () {
+	searchBar.classList.add("searchBar__active");
+};
+
+// ////////////// Directions
+const directions = new MapboxDirections({
+	accessToken:
+		"pk.eyJ1IjoiYmVubHciLCJhIjoiY2t2N2p1YTQ4OWtsbzJwbWFxbGlxeTR5aSJ9.h-C9wZFdtTINvHwcJXKfMg",
+	unit: "metric",
+	profile: "mapbox/walking",
+	interactive: 0,
+	placeholderOrigin: "Your location",
+	placeholderDestination: "Your destination",
+	zoom: 8,
+});
 // ////////////// Loading the map
 
 const successLocation = function (position) {
-	// console.log(position);
 	setupMap([position.coords.longitude, position.coords.latitude]);
 };
 
@@ -81,16 +107,8 @@ const setupMap = function (center) {
 		center: center,
 		zoom: 13,
 	});
-	//   Create Geocoder search bar
-	const geocoder = new MapboxGeocoder({
-		// Initialize the geocoder
-		accessToken: mapboxgl.accessToken, // Set the access token
-		setRouting: true,
-		mapboxgl: mapboxgl, // Set the mapbox-gl instance
-		marker: false, // Do not use the default marker style
-		placeholder: "Enter Suburb",
-		zoom: 13,
-	});
+
+	document.getElementById("directionsBox").appendChild(directions.onAdd(map));
 	document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
 
 	// Cafe functionality including popup, marker and card
@@ -131,6 +149,16 @@ const setupMap = function (center) {
 		});
 	};
 
+	const originFunction = function () {
+		directions.setOrigin(center);
+	};
+
+	const clickFunctions = function (marker) {
+		flyTo(marker);
+		createPopups(marker);
+		createCard(marker);
+	};
+
 	const addMarkers = function () {
 		for (const marker of stores.features) {
 			/* Create a div element for the marker. */
@@ -146,9 +174,12 @@ const setupMap = function (center) {
 				.addTo(map);
 
 			el.addEventListener("click", function () {
-				flyTo(marker);
-				createPopups(marker);
-				createCard(marker);
+				clickFunctions(marker);
+				btnDirect.addEventListener("click", function () {
+					originFunction();
+					directions.setDestination(marker.geometry.coordinates);
+					directionsCont.classList.add("directions__cont--active");
+				});
 			});
 		}
 	};
@@ -188,9 +219,14 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
 });
 
 // ////////////// Card Functions
-const testBtn = cardBtn.forEach(function (e) {
-	const dataId = e.dataset.btn;
-	e.addEventListener("click", function () {
-		console.log(dataId);
-	});
+directionsBack.addEventListener("click", () => {
+	directionsCont.classList.remove("directions__cont--active");
+});
+
+btnFav.addEventListener("click", () => {
+	console.log("fav");
+});
+
+btnMore.addEventListener("click", () => {
+	console.log("more");
 });
