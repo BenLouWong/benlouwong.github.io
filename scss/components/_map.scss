@@ -12,18 +12,20 @@
 .markerCafe {
 	border: none;
 	cursor: pointer;
-	height: 2rem;
-	width: 2rem;
+	height: 2.5rem;
+	width: 2.5rem;
 	background-image: url(../../icons/coffeeMap.png);
 	background-size: cover;
 	background-position: center;
+
+	// transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .markerUser {
 	border: none;
-	height: 3rem;
-	width: 3rem;
-	background-image: url(../../icons/location.png);
+	height: 2.5rem;
+	width: 2.5rem;
+	background-image: url(../../icons/user.png);
 	background-size: cover;
 	background-position: center;
 }

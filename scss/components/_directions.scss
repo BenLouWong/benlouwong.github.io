@@ -1,31 +1,40 @@
-.directions-control-instructions,
+// .directions-control-instructions,
 .mapbox-directions-profile,
+.mapbox-directions-instructions,
 .geocoder-pin-right,
-.directions-icon-reverse {
+.directions-icon-reverse,
+.directions-control-inputs {
 	display: none;
 }
 
 .directions {
 	&__cont {
 		position: fixed;
-		left: 50%;
-		// top: 3%;
 		transform: translateX(-50%);
-
-		padding: 0.7rem;
 
 		background: #ffffff;
 		box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
 		border-radius: 10px;
 		z-index: 110;
-		width: 93%;
-		visibility: hidden;
-		opacity: 0;
-		top: 6%;
 		transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
+		// left: 50%;
+		// top: 3%;
+		// padding: 0.7rem;
+		// width: 90%;
+		visibility: hidden;
+		opacity: 0;
+		// top: 6%;
+
+		left: 17%;
+		top: 16%;
+		padding: 0.6rem;
+		width: 25%;
+		// opacity: 1;
+		// visibility: visible;
+
 		&--active {
-			top: 3%;
+			top: 12%;
 			opacity: 1;
 			visibility: visible;
 		}
@@ -35,30 +44,33 @@
 			justify-content: center;
 			align-items: center;
 			width: 100%;
-			padding-left: 0.5rem;
+			padding: 0.3rem 0.5rem 0 0.8rem;
 		}
 	}
 
 	&__icons {
 		height: 100%;
+		:first-child {
+			padding-bottom: 1.7rem;
+		}
 	}
 
 	&__icon {
-		width: 1.5rem;
-		height: 1.5rem;
+		width: 1rem;
+		height: 1rem;
 		& img {
 			height: auto;
 			width: 100%;
 		}
 	}
-	&__dot {
-		border: none;
-		width: 0.2rem;
-		height: 0.2rem;
-		margin: 0.2rem;
-		border-radius: 50%;
-		background-color: $font-colour-search;
-	}
+	// &__dot {
+	// 	border: none;
+	// 	width: 0.2rem;
+	// 	height: 0.2rem;
+	// 	margin: 0.2rem;
+	// 	border-radius: 50%;
+	// 	background-color: $font-colour-search;
+	// }
 }
 
 .mapbox-directions {
@@ -80,5 +92,18 @@
 			}
 		}
 		margin-left: 0.5rem;
+	}
+	&-route-summary {
+		display: flex;
+		flex-direction: column;
+		align-items: baseline;
+		justify-content: space-around;
+		color: $font-colour-search;
+
+		& h1,
+		& span {
+			font-size: $font-small;
+			padding: 0.3rem;
+		}
 	}
 }

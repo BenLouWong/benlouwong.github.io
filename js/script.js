@@ -87,7 +87,8 @@ const directions = new MapboxDirections({
 	interactive: 0,
 	placeholderOrigin: "Your location",
 	placeholderDestination: "Your destination",
-	zoom: 8,
+	zoom: 10,
+	alternatives: "true",
 });
 // ////////////// Loading the map
 
@@ -125,21 +126,19 @@ const setupMap = function (center) {
 		});
 	};
 
-	const createPopups = function (currentFeature) {
+	const createPin = function (currentFeature) {
 		const popUps = document.getElementsByClassName("mapboxgl-popup");
 		/** Check if there is already a popup on the map and if so, remove it */
 		if (popUps[0]) popUps[0].remove();
 
 		const popup = new mapboxgl.Popup({ closeOnClick: false })
 			.setLngLat(currentFeature.geometry.coordinates)
-			.setHTML(
-				`<h3 class='heading-3'>${currentFeature.properties.title}</h3><h4 class='heading-4'>${currentFeature.properties.address}, ${currentFeature.properties.postalCode}</h4>`
-			)
+			.setHTML(`<div class='pin'></div>`)
 			.addTo(map);
 
-		popup.on("close", () => {
-			closeCard();
-		});
+		// popup.on("close", () => {
+		// 	closeCard();
+		// });
 	};
 
 	const flyTo = function (currentFeature) {
@@ -155,7 +154,7 @@ const setupMap = function (center) {
 
 	const clickFunctions = function (marker) {
 		flyTo(marker);
-		createPopups(marker);
+		createPin(marker);
 		createCard(marker);
 	};
 
