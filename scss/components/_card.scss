@@ -13,7 +13,7 @@
 
 	opacity: 0;
 	visibility: hidden;
-	bottom: -2%;
+	bottom: -5%;
 
 	// bottom: 1%;
 	// opacity: 1;
@@ -63,7 +63,7 @@
 	}
 
 	&__active {
-		bottom: 0%;
+		bottom: -1%;
 		opacity: 1;
 		visibility: visible;
 	}

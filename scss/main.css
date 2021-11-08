@@ -310,7 +310,7 @@ section {
   border-radius: 15px;
   opacity: 0;
   visibility: hidden;
-  bottom: -2%;
+  bottom: -5%;
   -webkit-transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -365,7 +365,7 @@ section {
 }
 
 .card__active {
-  bottom: 0%;
+  bottom: -1%;
   opacity: 1;
   visibility: visible;
 }
