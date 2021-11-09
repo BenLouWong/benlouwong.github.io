@@ -13,7 +13,7 @@
 		transform: translateX(-50%);
 
 		background: #ffffff;
-		box-shadow: 0px 7px 19px 3px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 7px 7px 3px rgba(0, 0, 0, 0.1);
 		border-radius: 10px;
 		z-index: 110;
 		transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -26,10 +26,10 @@
 		opacity: 0;
 		// top: 6%;
 
-		left: 17%;
-		top: 16%;
+		left: 23%;
+		top: 15%;
 		padding: 0.6rem;
-		width: 25%;
+		width: 35%;
 		// opacity: 1;
 		// visibility: visible;
 
@@ -44,7 +44,7 @@
 			justify-content: center;
 			align-items: center;
 			width: 100%;
-			padding: 0.3rem 0.5rem 0 0.8rem;
+			// padding: 0.3rem 0.5rem 0 0.8rem;
 		}
 	}
 

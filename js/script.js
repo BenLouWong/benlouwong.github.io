@@ -4,6 +4,12 @@ const hamburger = document.querySelector(".searchBar__hamburger");
 const closeHam = document.querySelector(".sidebar__close");
 const sidebar = document.querySelector(".sidebar");
 const sidebarOverlay = document.querySelector(".sidebar__overlay");
+const addedSuccessful = document.querySelector(".overlay__added--successful");
+const addedSuccessful02 = document.querySelector(
+	".overlay__added--successful-cont"
+);
+const addedError = document.querySelector(".overlay__added--error");
+const addedError02 = document.querySelector(".overlay__added--error-cont");
 const preLoadCont = document.querySelector(".loader__container");
 const searchBar = document.querySelector(".searchBar");
 const card = document.querySelector(".card");
@@ -16,7 +22,12 @@ const btnMore = document.querySelector(".cardBtn__more");
 const directionsCont = document.querySelector(".directions__cont");
 const directionsBack = document.querySelector(".backArrow__directions");
 
+let favourites = [];
+// let favSet = [];
 let html;
+
+mapboxgl.accessToken =
+	"pk.eyJ1IjoiYmVubHciLCJhIjoiY2t2N2p1YTQ4OWtsbzJwbWFxbGlxeTR5aSJ9.h-C9wZFdtTINvHwcJXKfMg";
 
 // ////////////// Information Card
 const createCard = function (currentFeature) {
@@ -40,9 +51,6 @@ const closeCard = function () {
 stores.features.forEach((store, i) => {
 	store.properties.id = i;
 });
-
-mapboxgl.accessToken =
-	"pk.eyJ1IjoiYmVubHciLCJhIjoiY2t2N2p1YTQ4OWtsbzJwbWFxbGlxeTR5aSJ9.h-C9wZFdtTINvHwcJXKfMg";
 
 // ////////////// Side navigation functionality
 const openMenu = function () {
@@ -152,7 +160,91 @@ const setupMap = function (center) {
 		directions.setOrigin(center);
 	};
 
-	const clickFunctions = function (marker) {
+	const cardFunctions = function (marker) {
+		btnDirect.addEventListener("click", function () {
+			originFunction();
+			directions.setDestination(marker.geometry.coordinates);
+			directionsCont.classList.add("directions__cont--active");
+		});
+
+		// To be completed
+		btnFav.addEventListener("click", function () {
+			// console.log("click");
+			const storeFavourite = function () {
+				favourites.push(marker.properties);
+				let favArrUnique = [
+					...new Set(
+						favourites.map((currentFeature) => currentFeature.id)
+					), //Set will only allow unique values in it, so i'm going to pass it the ids of each object. If the loop tries to add the same value again, it'll get ignored for free.
+				].map((id) => {
+					return favourites.find(
+						(currentFeature) => currentFeature.id === id
+					); //With the array of ids I got on step 1, I run a map function on it and return the actual address from the original address array
+				});
+				localStorage.setItem("cafe", JSON.stringify(favArrUnique));
+				console.log(favArrUnique);
+			};
+
+			const addFavSuccess = function () {
+				const successAddPopup = function () {
+					addedSuccessful02.classList.add(
+						"overlay__added--successful-cont--active"
+					);
+					addedSuccessful.classList.add(
+						"overlay__added--successful--active"
+					);
+				};
+				const removeAddPopup = function () {
+					addedSuccessful02.classList.remove(
+						"overlay__added--successful-cont--active"
+					);
+					addedSuccessful.classList.remove(
+						"overlay__added--successful--active"
+					);
+				};
+				successAddPopup();
+				setTimeout(removeAddPopup, 2000);
+			};
+
+			const addFavError = function () {
+				const errorAddPopup = function () {
+					addedError02.classList.add(
+						"overlay__added--error-cont--active"
+					);
+					addedError.classList.add("overlay__added--error--active");
+				};
+				const removeErrorPopup = function () {
+					addedError02.classList.remove(
+						"overlay__added--error-cont--active"
+					);
+					addedError.classList.remove(
+						"overlay__added--error--active"
+					);
+				};
+				errorAddPopup();
+				setTimeout(removeErrorPopup, 2000);
+			};
+
+			const validateFav = function () {
+				let favArray = [];
+
+				data.forEach(function (i) {
+					favArray.push(i.id);
+				});
+				favArray.forEach(function () {
+					favArray.includes(marker.properties.id)
+						? addFavError()
+						: addFavSuccess();
+				});
+			};
+
+			const data = JSON.parse(localStorage.getItem("cafe"));
+			if (!data) return;
+
+			storeFavourite();
+			validateFav();
+		});
+
 		flyTo(marker);
 		createPin(marker);
 		createCard(marker);
@@ -173,12 +265,7 @@ const setupMap = function (center) {
 				.addTo(map);
 
 			el.addEventListener("click", function () {
-				clickFunctions(marker);
-				btnDirect.addEventListener("click", function () {
-					originFunction();
-					directions.setDestination(marker.geometry.coordinates);
-					directionsCont.classList.add("directions__cont--active");
-				});
+				cardFunctions(marker);
 			});
 		}
 	};
@@ -220,10 +307,6 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
 // ////////////// Card Functions
 directionsBack.addEventListener("click", () => {
 	directionsCont.classList.remove("directions__cont--active");
-});
-
-btnFav.addEventListener("click", () => {
-	console.log("fav");
 });
 
 btnMore.addEventListener("click", () => {
