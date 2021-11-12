@@ -1,5 +1,6 @@
 "use strict";
 
+/////////////// Store data within the storeData.js file
 const hamburger = document.querySelector(".searchBar__hamburger");
 const closeHam = document.querySelector(".sidebar__close");
 const sidebar = document.querySelector(".sidebar");
@@ -14,8 +15,15 @@ const preLoadCont = document.querySelector(".loader__container");
 const searchBar = document.querySelector(".searchBar");
 const card = document.querySelector(".card");
 const cardContent = document.getElementById("card__content");
+const cardRating = document.querySelector(".card__rating");
 const cardBtn = document.querySelectorAll(".cardBtn");
 const defaultPos = [151.2057150002948, -33.87303520459041];
+const description = document.querySelector(".description");
+const descriptionClose = document.querySelector(".description__close");
+const descHeadings = document.querySelector(".description__headings");
+const descOverview = document.querySelector(".overviewCont");
+const descRecomm = document.querySelector(".descrCont");
+const descRating = document.querySelector(".descrRating");
 const btnDirect = document.querySelector(".cardBtn__direction");
 const btnFav = document.querySelector(".cardBtn__fav");
 const btnMore = document.querySelector(".cardBtn__more");
@@ -23,7 +31,6 @@ const directionsCont = document.querySelector(".directions__cont");
 const directionsBack = document.querySelector(".backArrow__directions");
 
 let favourites = [];
-// let favSet = [];
 let html;
 
 mapboxgl.accessToken =
@@ -33,21 +40,27 @@ mapboxgl.accessToken =
 const createCard = function (currentFeature) {
 	card.classList.add("card__active");
 	html = `
-	<h3 class="heading-3 card__heading card__heading--main">
-	    ${currentFeature.properties.title}
+	    <h3 class="heading-3 card__heading card__heading--main">
+	        ${currentFeature.properties.title}
 	    </h3>
 	    <h4 class="heading-4 card__heading card__heading--sub">
-	    ${currentFeature.properties.address}
+	        ${currentFeature.properties.address}
 	    </h4>
 	    
 	    `;
+	// 	let htmlRating = `<ion-icon
+	//     name="star"
+	//     class="card__rating--star"
+	// ></ion-icon>`;
+
 	cardContent.innerHTML = html;
+	// cardRating.insertAdjacentHTML("afterend", currentFeature.properties.rating);
 };
 const closeCard = function () {
 	card.classList.remove("card__active");
 };
 
-/////////////// Store data within the storeData.js file
+// ////////////// Give each store unique id
 stores.features.forEach((store, i) => {
 	store.properties.id = i;
 });
@@ -67,12 +80,11 @@ hamburger.addEventListener("click", openMenu);
 closeHam.addEventListener("click", closeMenu);
 
 // ////////////// Preloader
-
 const preLoadClose = function () {
 	preLoadCont.classList.add("loader__container--hidden");
 };
 
-// ////////////// Geocoder
+// ////////////// Geocoder & Searchbar
 const geocoder = new MapboxGeocoder({
 	// Initialize the geocoder
 	accessToken: mapboxgl.accessToken, // Set the access token
@@ -98,8 +110,8 @@ const directions = new MapboxDirections({
 	zoom: 10,
 	alternatives: "true",
 });
-// ////////////// Loading the map
 
+// ////////////// Loading the map
 const successLocation = function (position) {
 	setupMap([position.coords.longitude, position.coords.latitude]);
 };
@@ -120,7 +132,7 @@ const setupMap = function (center) {
 	document.getElementById("directionsBox").appendChild(directions.onAdd(map));
 	document.getElementById("geocoder").appendChild(geocoder.onAdd(map));
 
-	// Cafe functionality including popup, marker and card
+	// ////////////// Render cafe location on map
 	const addCafe = function () {
 		//     Add feature cafes
 		map.addLayer({
@@ -134,6 +146,7 @@ const setupMap = function (center) {
 		});
 	};
 
+	// ////////////// Enable pin when click on cafe
 	const createPin = function (currentFeature) {
 		const popUps = document.getElementsByClassName("mapboxgl-popup");
 		/** Check if there is already a popup on the map and if so, remove it */
@@ -149,6 +162,7 @@ const setupMap = function (center) {
 		// });
 	};
 
+	// ////////////// Enable fly to pin when clicked
 	const flyTo = function (currentFeature) {
 		map.flyTo({
 			center: currentFeature.geometry.coordinates,
@@ -156,93 +170,124 @@ const setupMap = function (center) {
 		});
 	};
 
+	// ////////////// Enables starting location as current location when clicked on directions button
 	const originFunction = function () {
 		directions.setOrigin(center);
 	};
 
 	const cardFunctions = function (marker) {
+		// ////////////// Directions Button functionality
 		btnDirect.addEventListener("click", function () {
 			originFunction();
 			directions.setDestination(marker.geometry.coordinates);
 			directionsCont.classList.add("directions__cont--active");
 		});
 
-		// To be completed
+		// ////////////// Favourites Button functionality
 		btnFav.addEventListener("click", function () {
-			// console.log("click");
-			const storeFavourite = function () {
-				favourites.push(marker.properties);
-				let favArrUnique = [
-					...new Set(
-						favourites.map((currentFeature) => currentFeature.id)
-					), //Set will only allow unique values in it, so i'm going to pass it the ids of each object. If the loop tries to add the same value again, it'll get ignored for free.
-				].map((id) => {
-					return favourites.find(
-						(currentFeature) => currentFeature.id === id
-					); //With the array of ids I got on step 1, I run a map function on it and return the actual address from the original address array
-				});
-				localStorage.setItem("cafe", JSON.stringify(favArrUnique));
-				console.log(favArrUnique);
-			};
+			let data = JSON.parse(localStorage.getItem("cafe"));
+			if (!data) data = [];
 
-			const addFavSuccess = function () {
-				const successAddPopup = function () {
-					addedSuccessful02.classList.add(
-						"overlay__added--successful-cont--active"
-					);
-					addedSuccessful.classList.add(
-						"overlay__added--successful--active"
-					);
-				};
-				const removeAddPopup = function () {
-					addedSuccessful02.classList.remove(
-						"overlay__added--successful-cont--active"
-					);
-					addedSuccessful.classList.remove(
-						"overlay__added--successful--active"
-					);
-				};
-				successAddPopup();
-				setTimeout(removeAddPopup, 2000);
-			};
-
-			const addFavError = function () {
-				const errorAddPopup = function () {
-					addedError02.classList.add(
-						"overlay__added--error-cont--active"
-					);
-					addedError.classList.add("overlay__added--error--active");
-				};
-				const removeErrorPopup = function () {
-					addedError02.classList.remove(
-						"overlay__added--error-cont--active"
-					);
-					addedError.classList.remove(
-						"overlay__added--error--active"
-					);
-				};
-				errorAddPopup();
-				setTimeout(removeErrorPopup, 2000);
-			};
-
+			// // ////////////// Validate whether or not currentfeature is already within favourites
 			const validateFav = function () {
-				let favArray = [];
+				const addFavSuccess = function () {
+					const successAddPopup = function () {
+						addedSuccessful02.classList.add(
+							"overlay__added--successful-cont--active"
+						);
+						addedSuccessful.classList.add(
+							"overlay__added--successful--active"
+						);
+					};
+					const removeAddPopup = function () {
+						addedSuccessful02.classList.remove(
+							"overlay__added--successful-cont--active"
+						);
+						addedSuccessful.classList.remove(
+							"overlay__added--successful--active"
+						);
+					};
+					successAddPopup();
+					setTimeout(removeAddPopup, 3000);
+				};
 
-				data.forEach(function (i) {
-					favArray.push(i.id);
+				const addFavError = function () {
+					const errorAddPopup = function () {
+						addedError02.classList.add(
+							"overlay__added--error-cont--active"
+						);
+						addedError.classList.add(
+							"overlay__added--error--active"
+						);
+					};
+					const removeErrorPopup = function () {
+						addedError02.classList.remove(
+							"overlay__added--error-cont--active"
+						);
+						addedError.classList.remove(
+							"overlay__added--error--active"
+						);
+					};
+					errorAddPopup();
+					setTimeout(removeErrorPopup, 2000);
+				};
+				let dataId = [];
+
+				data.forEach(function (e) {
+					dataId.push(e.id);
 				});
-				favArray.forEach(function () {
-					favArray.includes(marker.properties.id)
-						? addFavError()
-						: addFavSuccess();
-				});
+
+				console.log(dataId);
+
+				// console.log(favIdArray, marker.properties.id);
+				// console.log(favIdArray.includes(marker.properties.id));
+
+				dataId.includes(marker.properties.id)
+					? addFavError()
+					: addFavSuccess();
 			};
 
-			const data = JSON.parse(localStorage.getItem("cafe"));
-			if (!data) return;
+			validateFav();
+
+			data.push(marker.properties);
+
+			let favArrUnique = [
+				...new Set(data.map((currentFeature) => currentFeature.id)), //Set will only allow unique values in it, so i'm going to pass it the ids of each object. If the loop tries to add the same value again, it'll get ignored for free.
+			].map((id) => {
+				return data.find((currentFeature) => currentFeature.id === id); //With the array of ids I got on step 1, I run a map function on it and return the actual address from the original address array
+			});
+
+			const storeFavourite = function () {
+				localStorage.setItem("cafe", JSON.stringify(favArrUnique));
+				// localStorage.setItem("cafe", JSON.stringify(data));
+			};
 
 			storeFavourite();
-			validateFav();
+			// localStorage.removeItem("cafe");
+		});
+
+		// ////////////// More Button functionality
+		btnMore.addEventListener("click", () => {
+			description.classList.add("description__active");
+			let descrHtml = `
+            <h2 class="
+                heading-1
+                description__heading description__heading--01
+            ">
+            ${marker.properties.title}
+            </h2>
+            <h3
+                class="
+                    heading-3
+                    description__heading description__heading--02
+                ">
+            ${marker.properties.address}, ${marker.properties.city}, ${marker.properties.postalCode}
+            </h3>`;
+			let overviewHTML = `<p>${marker.properties.overview}</p>`;
+			let descrHTML = `<p>${marker.properties.recommendations}</p>`;
+			descHeadings.innerHTML = descrHtml;
+			descOverview.innerHTML = overviewHTML;
+			descRecomm.innerHTML = descrHTML;
 		});
 
 		flyTo(marker);
@@ -250,6 +295,7 @@ const setupMap = function (center) {
 		createCard(marker);
 	};
 
+	// ////////////// Add custom markers to cafe locations
 	const addMarkers = function () {
 		for (const marker of stores.features) {
 			/* Create a div element for the marker. */
@@ -264,12 +310,14 @@ const setupMap = function (center) {
 				.setLngLat(marker.geometry.coordinates)
 				.addTo(map);
 
+			/* Call cardfunctions when each marker is clicked. */
 			el.addEventListener("click", function () {
 				cardFunctions(marker);
 			});
 		}
 	};
 
+	// ////////////// Add pin at start
 	const addStart = function () {
 		const start = center;
 		// Add starting point to the map
@@ -304,11 +352,10 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
 	enableHighAccuracy: true,
 });
 
-// ////////////// Card Functions
 directionsBack.addEventListener("click", () => {
 	directionsCont.classList.remove("directions__cont--active");
 });
 
-btnMore.addEventListener("click", () => {
-	console.log("more");
+descriptionClose.addEventListener("click", () => {
+	description.classList.remove("description__active");
 });

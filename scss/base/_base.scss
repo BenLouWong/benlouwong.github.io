@@ -4,11 +4,13 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: inherit;
+	// scrollbar-width: none;
 }
 
 html {
 	font-size: 18px; //18px
 	scroll-behavior: smooth;
+	// overflow: hidden;
 }
 
 body {

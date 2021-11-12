@@ -1,0 +1,30 @@
+.favCard {
+	justify-content: flex-start;
+	padding-bottom: 1.5rem;
+	&__img {
+		height: 3.5rem;
+		width: 3.5rem;
+		margin-right: 1rem;
+
+		& img {
+			height: 100%;
+			width: 100%;
+		}
+	}
+	&__textCont {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		&--heading {
+			padding-bottom: 0.5rem;
+		}
+	}
+	&__btn {
+		cursor: pointer;
+		background: transparent;
+		border: none;
+		margin: 0;
+		color: $font-colour-primary;
+	}
+}

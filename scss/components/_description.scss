@@ -1,0 +1,102 @@
+.description {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 117;
+
+	height: 0;
+	width: 100vw;
+	overflow-x: hidden;
+
+	// opacity: 0;
+	// visibility: hidden;
+
+	transition: all 0.8s cubic-bezier(0.56, 0.01, 0.24, 1.2);
+	background-color: white;
+
+	&__active {
+		opacity: 1;
+		visibility: visible;
+		height: 100vh;
+	}
+
+	&__close {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: $font-med-large;
+		position: absolute;
+		width: 50.06px;
+		height: 50.06px;
+		left: 25.36px;
+		top: 26px;
+		border-radius: 50%;
+		border: none;
+		cursor: pointer;
+
+		background: rgba(255, 255, 255, 0.882);
+		box-shadow: 0px 14px 23px 14px rgba(0, 0, 0, 0.05);
+	}
+
+	&__image {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100vw;
+		height: 13.5rem;
+
+		& img {
+			height: 100%;
+			width: auto;
+		}
+	}
+
+	&__content {
+		padding: 2.2rem;
+	}
+
+	&__heading {
+		padding-bottom: 1.3rem;
+
+		&--01 {
+			line-height: 2.5rem;
+		}
+
+		&--02 {
+			color: $font-colour-primary;
+		}
+		&--03 {
+			padding-bottom: 1rem;
+		}
+	}
+
+	&__ratings {
+		width: 100%;
+		&--box {
+			width: 51.86px;
+			height: 12.18px;
+			background-color: $colour-gold;
+		}
+	}
+
+	&__text {
+		color: $font-colour-primary;
+		padding-bottom: 1rem;
+		& p {
+			font-size: $font-small;
+			line-height: 1.2rem;
+		}
+	}
+
+	&__btns {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	&__btn {
+		margin-top: 1rem;
+		font-size: $font-small;
+	}
+}

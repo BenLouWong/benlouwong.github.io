@@ -4,7 +4,7 @@
 	background-color: $colour-backArrow;
 	z-index: 110;
 	width: 90%;
-	height: 9rem;
+	height: 9.5rem;
 	transform: translate(-50%, -20%);
 
 	left: 50%;
@@ -55,6 +55,7 @@
 			color: $colour-gold;
 			padding-right: 0.2rem;
 		}
+		padding-bottom: 0.5rem;
 	}
 
 	&__buttons {
@@ -76,10 +77,10 @@
 	height: 32.54px;
 	border-radius: 50%;
 	&:not(:last-child) {
-		margin-right: 1.2rem;
+		margin-right: 1.35rem;
 	}
 
-	&:hover {
+	&:active {
 		filter: brightness(0.8);
 	}
 
@@ -125,6 +126,8 @@
 
 	&__fav {
 		position: relative;
+		color: $colour-backArrow;
+		font-size: $font-card-button;
 		&--line {
 			background-color: $colour-backArrow;
 			width: 0.8rem;
@@ -132,7 +135,7 @@
 			&-02 {
 				position: absolute;
 				// left: 50%;
-				transform: translateY(-25%);
+				transform: translateY(-50%);
 				rotate: 90deg;
 			}
 		}
@@ -147,6 +150,25 @@
 			&:not(:last-child) {
 				margin-right: 0.15rem;
 			}
+		}
+	}
+}
+
+.star {
+	&__Outer {
+		display: inline-block;
+		position: relative;
+	}
+	&__Inner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		width: 50%;
+		&::before {
+			content: "\f005 \f005 \f005 \f005 \f005";
+			color: $colour-gold;
 		}
 	}
 }
