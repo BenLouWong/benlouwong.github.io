@@ -29,6 +29,10 @@
 			href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
 			type="text/css"
 		/> -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+		/>
 		<link rel="stylesheet" href="scss/main.css" />
 	</head>
 	<body>
@@ -98,7 +102,7 @@
 							<span class="heading-3">My Favourites</span>
 						</ul>
 					</a>
-					<a href="#" class="sidebar__menu--button">
+					<a href="ourList.html" class="sidebar__menu--button">
 						<ul class="sidebar__menu--btn flex flex__ai-center">
 							<div class="sidebar__menu--imgCont">
 								<img
@@ -180,11 +184,15 @@
 		</header>
 		<main>
 			<div class="card flex flex__ai-center">
+				<button class="card__down" id="card__down">
+					<ion-icon name="chevron-down-outline"></ion-icon>
+				</button>
+
 				<div class="card__img">
-					<img
-						src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1637&q=80"
+					<!-- <img
+						src="images/Brickfields.jpg"
 						alt="card image"
-					/>
+					/> -->
 				</div>
 
 				<div class="card__wrapper flex flex__dir-col">
@@ -269,12 +277,31 @@
 				<button class="description__close">
 					<ion-icon name="close-outline"></ion-icon>
 				</button>
-				<div class="description__image">
-					<img
-						src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1637&q=80"
-						alt="descriptionImage"
-					/>
+				<div class="description__image swiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide">
+							<img
+								src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1637&q=80"
+								alt="descriptionImage"
+							/>
+						</div>
+						<div class="swiper-slide">
+							<img
+								src="https://images.unsplash.com/photo-1564327367919-cb377ea6a88f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+								alt="descriptionImage"
+							/>
+						</div>
+						<div class="swiper-slide">
+							<img
+								src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1632&q=80"
+								alt="descriptionImage"
+							/>
+						</div>
+					</div>
+					<div class="swiper-pagination"></div>
 				</div>
+
 				<div class="description__content">
 					<div class="description__headings">
 						<!-- <h2
@@ -375,7 +402,7 @@
 		</main>
 		<footer></footer>
 		<script src="js/storeData.js"></script>
-		<script src="js/script.js"></script>
+		<script type="module" src="js/script.js"></script>
 		<script
 			type="module"
 			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -384,5 +411,6 @@
 			nomodule
 			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
 		></script>
+		<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 	</body>
 </html>

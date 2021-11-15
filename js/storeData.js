@@ -36,7 +36,7 @@ const stores = {
 				state: "NSW",
 				rating: "4",
 				overview:
-					"The original Pablo & Rusty's before Pablo & Rusty's before changing it's name 5 years ago, Pure Brew is a local favourite. Serving consistently great single-origin coffee with experienced barista's who know their stuff, regular customers are not uncommon here.",
+					"The original Pablo & Rusty's before changing it's name 5 years ago, Pure Brew is a local favourite. Serving consistently great single-origin coffee with experienced barista's who know their stuff, regular customers are not uncommon here.",
 				recommendations:
 					"    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 			},

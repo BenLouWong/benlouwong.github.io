@@ -1,12 +1,15 @@
 .description {
 	position: absolute;
 	bottom: 0;
+	// top: 0;
 	left: 0;
 	z-index: 117;
 
+	// transform: translateY(-100%);
 	height: 0;
 	width: 100vw;
 	overflow-x: hidden;
+	// overflow-y: auto;
 
 	// opacity: 0;
 	// visibility: hidden;
@@ -15,9 +18,12 @@
 	background-color: white;
 
 	&__active {
+		// top: 0;
+		bottom: 0;
+		// transform: translateY(0%);
 		opacity: 1;
 		visibility: visible;
-		height: 100vh;
+		height: 100%;
 	}
 
 	&__close {
@@ -33,6 +39,7 @@
 		border-radius: 50%;
 		border: none;
 		cursor: pointer;
+		z-index: 10;
 
 		background: rgba(255, 255, 255, 0.882);
 		box-shadow: 0px 14px 23px 14px rgba(0, 0, 0, 0.05);
@@ -47,12 +54,13 @@
 
 		& img {
 			height: 100%;
-			width: auto;
+			width: 100%;
 		}
 	}
 
 	&__content {
 		padding: 2.2rem;
+		overflow: hidden;
 	}
 
 	&__heading {

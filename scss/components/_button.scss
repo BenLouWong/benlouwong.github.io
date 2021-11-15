@@ -66,16 +66,3 @@
 	color: $colour-orange-vibrant-dark;
 	text-decoration: none;
 }
-
-.contact {
-	border-radius: 10px;
-	margin-top: 1rem;
-	background: linear-gradient(90deg, #ff6e40 0%, #df552a 100%);
-	padding: 2rem 0;
-	font-size: $font-med-large;
-	text-decoration: none;
-	color: $colour-navy;
-	&__send {
-		padding-left: 1rem;
-	}
-}

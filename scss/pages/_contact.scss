@@ -1,0 +1,26 @@
+.contact {
+	cursor: pointer;
+	border: none;
+	border-radius: 10px;
+	margin-top: 1rem;
+	background: linear-gradient(90deg, #ff6e40 0%, #df552a 100%);
+	width: 45%;
+	padding: 1rem;
+	font-size: $font-med;
+	text-decoration: none;
+	color: $colour-navy;
+
+	&__paragraph {
+		padding-bottom: 1rem;
+	}
+
+	&__input {
+		font-family: "Lato", sans-serif;
+		width: 100%;
+		border: 1.5px $font-colour-primary solid;
+		font-size: $font-small;
+		border-radius: 7px;
+		padding: 0.7rem 1.5rem;
+		margin-bottom: 0.7rem;
+	}
+}

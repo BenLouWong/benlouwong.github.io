@@ -17,8 +17,10 @@ const card = document.querySelector(".card");
 const cardContent = document.getElementById("card__content");
 const cardRating = document.querySelector(".card__rating");
 const cardBtn = document.querySelectorAll(".cardBtn");
+const cardImg = document.querySelector(".card__img");
 const defaultPos = [151.2057150002948, -33.87303520459041];
 const description = document.querySelector(".description");
+const descrBtn = document.querySelector(".description__btn");
 const descriptionClose = document.querySelector(".description__close");
 const descHeadings = document.querySelector(".description__headings");
 const descOverview = document.querySelector(".overviewCont");
@@ -52,8 +54,14 @@ const createCard = function (currentFeature) {
 	//     name="star"
 	//     class="card__rating--star"
 	// ></ion-icon>`;
+	let imgHtml = `
+    <img
+        src="images/${currentFeature.properties.title}.jpg"
+        alt="card image"
+    />`;
 
 	cardContent.innerHTML = html;
+	cardImg.innerHTML = imgHtml;
 	// cardRating.insertAdjacentHTML("afterend", currentFeature.properties.rating);
 };
 const closeCard = function () {
@@ -237,11 +245,6 @@ const setupMap = function (center) {
 					dataId.push(e.id);
 				});
 
-				console.log(dataId);
-
-				// console.log(favIdArray, marker.properties.id);
-				// console.log(favIdArray.includes(marker.properties.id));
-
 				dataId.includes(marker.properties.id)
 					? addFavError()
 					: addFavSuccess();
@@ -281,13 +284,20 @@ const setupMap = function (center) {
                     heading-3
                     description__heading description__heading--02
                 ">
-            ${marker.properties.address}, ${marker.properties.city}, ${marker.properties.postalCode}
+            ${marker.properties.address}, ${marker.properties.city}, ${marker.properties.state}, ${marker.properties.postalCode}
             </h3>`;
 			let overviewHTML = `<p>${marker.properties.overview}</p>`;
 			let descrHTML = `<p>${marker.properties.recommendations}</p>`;
 			descHeadings.innerHTML = descrHtml;
 			descOverview.innerHTML = overviewHTML;
 			descRecomm.innerHTML = descrHTML;
+		});
+
+		descrBtn.addEventListener("click", () => {
+			originFunction();
+			directions.setDestination(marker.geometry.coordinates);
+			directionsCont.classList.add("directions__cont--active");
+			description.classList.remove("description__active");
 		});
 
 		flyTo(marker);
@@ -352,10 +362,24 @@ navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {
 	enableHighAccuracy: true,
 });
 
+// CLose Directions
 directionsBack.addEventListener("click", () => {
 	directionsCont.classList.remove("directions__cont--active");
 });
 
+// CLose description
 descriptionClose.addEventListener("click", () => {
 	description.classList.remove("description__active");
 });
+
+// Description - image swiper
+import Swiper from "https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js";
+const swiper = new Swiper(".swiper", {
+	pagination: {
+		el: ".swiper-pagination",
+		dynamicBullets: true,
+	},
+});
+
+// Close card
+document.getElementById("card__down").addEventListener("click", closeCard);

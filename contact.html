@@ -37,28 +37,44 @@
 				<div class="divider"></div>
 
 				<div class="paragraph">
-					<p>
-						We are always on the lookout for cafe recommendations.
-						If you want us to review or add your favourite to the
-						list, send us an email with your recommendations using
-						the link below and we'll check them out!
+					<p class="contact__paragraph">
+						Have any recommendations for us to check out? Want to
+						contribute and help scale up our services? Send us an
+						email using the form below
 					</p>
-					<br />
-					<p>
-						Want to contribute? We are always looking to scale up,
-						refine our software and increase our exposure. If you're
-						interested in being part of our team send us an email
-						using the link below.
-					</p>
-					<br />
-					<a
-						href="mailto: blouwong@gmail.com"
+				</div>
+				<form
+					action="https://formspree.io/f/mjvjqnpz"
+					method="POST"
+					class="flex flex__dir-col flex__jc-center"
+				>
+					<label class="flex flex__dir-col">
+						Your email:
+						<input
+							type="email"
+							name="_replyto"
+							class="contact__input contact__input--02"
+							required
+						/>
+					</label>
+					<label>
+						Your message:
+						<textarea
+							name="message"
+							class="contact__input contact__input--02"
+							cols="30"
+							rows="5"
+						></textarea>
+					</label>
+					<!-- your other form fields go here -->
+					<button
+						type="submit"
 						class="contact flex flex__ai-center flex__jc-center"
 					>
 						<ion-icon name="paper-plane"></ion-icon>
 						<span class="contact__send">Send!</span>
-					</a>
-				</div>
+					</button>
+				</form>
 			</section>
 		</main>
 		<footer></footer>

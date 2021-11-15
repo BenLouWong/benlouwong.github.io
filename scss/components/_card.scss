@@ -21,6 +21,17 @@
 
 	transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
+	&__down {
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		position: absolute;
+		right: 0;
+		top: 0;
+		padding: 0.5rem;
+		font-size: $font-small;
+	}
+
 	&__img {
 		display: flex;
 		align-items: center;
@@ -97,8 +108,8 @@
 			&:first-child {
 				left: 10%;
 				bottom: 50%;
-				transform: translate(30%, 0);
-				rotate: 90deg;
+				transform: translate(0, 180%) rotate(90deg);
+				// rotate: 90deg;
 			}
 			&:nth-child(2) {
 				width: 0.85rem;
@@ -106,15 +117,15 @@
 			}
 			&:nth-child(3) {
 				width: 0.4rem;
-				transform: translate(-30%, -240%);
-				rotate: 45deg;
+				transform: translate(30%, -240%) rotate(45deg);
+				// rotate: 45deg;
 				left: 50%;
 			}
 			&:last-child {
 				width: 0.4rem;
 				left: 50%;
-				transform: translate(-25%, -50%);
-				rotate: 135deg;
+				transform: translate(30%, -60%) rotate(135deg);
+				// rotate: 135deg;
 			}
 		}
 	}
