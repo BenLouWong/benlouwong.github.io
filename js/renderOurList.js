@@ -10,7 +10,8 @@ const renderList = function () {
 		console.log(i.properties.title);
 		ourHtml = `<div class="favCard flex flex__ai-center">
     <div class="favCard__img">
-        <img src="https://images.unsplash.com/photo-1619213553840-32ef26990e38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80" alt="" class="favCard__img" />
+            <img src="images/${i.properties.title}.jpg"
+            alt="card image" class="favCard__img" />
     </div>
 
     <div
