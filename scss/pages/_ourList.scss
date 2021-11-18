@@ -1,0 +1,45 @@
+.listCard {
+	flex-direction: column;
+	width: 100%;
+	height: auto;
+
+	@include respond(tab-port) {
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	&__photo {
+		width: 100%;
+		height: auto;
+
+		& img {
+			border-radius: 15px;
+			width: 100%;
+			height: auto;
+		}
+	}
+	&__content {
+		padding: 1rem 0;
+		@include respond(tab-port) {
+			padding-top: 0;
+			padding-left: 1.5rem;
+		}
+	}
+	& button {
+		justify-content: flex-start;
+		border: none;
+		cursor: pointer;
+		box-shadow: none;
+	}
+}
+
+.listFavHeader {
+	position: sticky;
+	line-height: 2.3rem;
+	justify-content: start;
+	height: fit-content;
+	padding: 1rem 2rem;
+	width: 100%;
+	background-color: $colour-gold;
+	box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.2);
+}

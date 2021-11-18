@@ -22,10 +22,11 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
 	align-items: start;
-	gap: 2.5rem;
+	gap: 2rem;
 
-	@include respond(phone) {
-		gap: 1rem;
+	@include respond(tab-port) {
+		grid-template-columns: repeat(2, minmax(13rem, 1fr));
+		gap: 2.5rem;
 	}
 }
 
