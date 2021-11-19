@@ -3,11 +3,14 @@
 const ourListDivider = document.querySelector(".listGrid");
 let ourHtml;
 
-console.log(stores);
+const description = document.querySelector(".description");
+const descriptionClose = document.querySelector(".description__close");
+const descHeadings = document.querySelector(".description__headings");
+const descOverview = document.querySelector(".overviewCont");
+const descRecomm = document.querySelector(".descrCont");
 
 const renderList = function () {
 	stores.features.forEach((i) => {
-		console.log(i.properties.title);
 		ourHtml = `<div class="listCard flex flex__dir-col flex__jc-sb">
         <div class="listCard__photo">
             <img
@@ -28,13 +31,48 @@ const renderList = function () {
             >
             ${i.properties.address}, ${i.properties.city}, ${i.properties.state}, ${i.properties.postalCode}
             </h3>
-            <button class="btn btn__01">
+            <button class="listBtn btn btn__01">
                 <h4 class="heading-4">Read More</h4>
             </button>
         </div>
     </div>`;
 		ourListDivider.insertAdjacentHTML("afterbegin", ourHtml);
+		document
+			.querySelector(".listBtn")
+			.addEventListener("click", function () {
+				description.classList.add("description__active");
+				let descrHtml = `
+            <h2 class="
+                heading-1
+                description__heading description__heading--01
+            ">
+            ${i.properties.title}
+            </h2>
+            <h3
+                class="
+                    heading-3
+                    description__heading description__heading--02
+                ">
+            ${i.properties.address}, ${i.properties.city}, ${i.properties.state}, ${i.properties.postalCode}
+            </h3>`;
+				let overviewHTML = `<p>${i.properties.overview}</p>`;
+				let recommHTML = `<p>${i.properties.recommendations}</p>`;
+				descHeadings.innerHTML = descrHtml;
+				descOverview.innerHTML = overviewHTML;
+				descRecomm.innerHTML = recommHTML;
+			});
+	});
+	descriptionClose.addEventListener("click", () => {
+		description.classList.remove("description__active");
 	});
 };
 
 renderList();
+
+import Swiper from "https://unpkg.com/swiper@7/swiper-bundle.esm.browser.min.js";
+const swiper = new Swiper(".swiper", {
+	pagination: {
+		el: ".swiper-pagination",
+		dynamicBullets: true,
+	},
+});

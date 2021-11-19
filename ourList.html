@@ -22,6 +22,11 @@
 			href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css"
 			type="text/css"
 		/>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+		/>
+
 		<link rel="stylesheet" href="scss/main.css" />
 	</head>
 	<body>
@@ -32,7 +37,7 @@
 			<h1 class="heading-1">Our List</h1>
 		</header>
 		<main>
-			<section class="about">
+			<section class="fixedHeadSpacing">
 				<!-- <div class="about__container flex flex__ai-center">
 					<a href="map.html" class="backArrow">
 						<ion-icon name="arrow-back"></ion-icon>
@@ -93,11 +98,131 @@
 					</div> -->
 				</div>
 			</section>
+			<div class="description">
+				<button class="description__close">
+					<ion-icon name="close-outline"></ion-icon>
+				</button>
+				<div class="description__image swiper">
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide">
+							<img
+								src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1637&q=80"
+								alt="descriptionImage"
+							/>
+						</div>
+						<div class="swiper-slide">
+							<img
+								src="https://images.unsplash.com/photo-1564327367919-cb377ea6a88f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80"
+								alt="descriptionImage"
+							/>
+						</div>
+						<div class="swiper-slide">
+							<img
+								src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1632&q=80"
+								alt="descriptionImage"
+							/>
+						</div>
+					</div>
+					<div class="swiper-pagination"></div>
+				</div>
+
+				<div class="description__content">
+					<div class="description__headings">
+						<!-- <h2
+						class="
+							heading-1
+							description__heading description__heading--01
+						"
+					>
+						Example
+					</h2>
+					<h3
+						class="
+							heading-3
+							description__heading description__heading--02
+						"
+					>
+						Example
+					</h3>-->
+					</div>
+
+					<div
+						class="
+							description__ratings
+							flex__ai-center flex flex__jc-sb
+						"
+					>
+						<div class="description__ratings--box"></div>
+						<div class="description__ratings--box"></div>
+						<div class="description__ratings--box"></div>
+					</div>
+					<div class="divider"></div>
+					<div class="description__text">
+						<h3
+							class="
+								heading-3
+								description__heading--03
+								descrOverview
+							"
+						>
+							Overview
+						</h3>
+						<div class="overviewCont">
+							<!-- <p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit. Vel, qui soluta. Reprehenderit totam inventore
+							explicabo saepe culpa eveniet tempora, quis, soluta
+							placeat, labore minima voluptatum nihil quod cumque
+							autem incidunt.
+						</p> -->
+						</div>
+					</div>
+					<div class="description__text">
+						<h3
+							class="
+								heading-3
+								description__heading--03
+								descrRecomm
+							"
+						>
+							Our Recommendations
+						</h3>
+						<div class="descrCont">
+							<!-- <p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit. Vel, qui soluta. Reprehenderit totam inventore
+							explicabo saepe culpa eveniet tempora, quis, soluta
+							placeat, labore minima voluptatum nihil quod cumque
+							autem incidunt.
+						</p> -->
+						</div>
+					</div>
+					<div class="description__text">
+						<h3
+							class="
+								heading-3
+								description__heading--03
+								descrRating
+							"
+						>
+							Ratings
+						</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing
+							elit. Vel, qui soluta. Reprehenderit totam inventore
+							explicabo saepe culpa eveniet tempora, quis, soluta
+							placeat, labore minima voluptatum nihil quod cumque
+							autem incidunt.
+						</p>
+					</div>
+				</div>
+			</div>
 		</main>
 		<footer></footer>
 		<script src="js/storeData.js"></script>
-		<script src="js/script.js"></script>
-		<script src="js/renderOurList.js"></script>
+		<!-- <script  src="js/script.js"></script> -->
+		<script type="module" src="js/renderOurList.js"></script>
 		<script
 			type="module"
 			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
@@ -106,5 +231,6 @@
 			nomodule
 			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
 		></script>
+		<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 	</body>
 </html>

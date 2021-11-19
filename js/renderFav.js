@@ -40,19 +40,19 @@ const renderFav = function () {
 				description.classList.add("description__active");
 				console.log(i);
 				let descrHtml = `
-                <h2 class="
-                    heading-1
-                    description__heading description__heading--01
+            <h2 class="
+                heading-1
+                description__heading description__heading--01
+            ">
+            ${i.title}
+            </h2>
+            <h3
+                class="
+                    heading-3
+                    description__heading description__heading--02
                 ">
-                ${i.title}
-                </h2>
-                <h3
-                    class="
-                        heading-3
-                        description__heading description__heading--02
-                    ">
-                ${i.address}, ${i.city}, ${i.state}, ${i.postalCode}
-                </h3>`;
+            ${i.address}, ${i.city}, ${i.state}, ${i.postalCode}
+            </h3>`;
 				let overviewHTML = `<p>${i.overview}</p>`;
 				let recommHTML = `<p>${i.recommendations}</p>`;
 				descHeadings.innerHTML = descrHtml;
