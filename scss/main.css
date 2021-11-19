@@ -589,28 +589,29 @@ section {
   position: fixed;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background: #ffffff;
-  -webkit-box-shadow: 0px 7px 7px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 7px 7px 3px rgba(0, 0, 0, 0.1);
+  background: #ffc13b;
+  -webkit-box-shadow: 0px 7px 7px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 7px 7px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   z-index: 110;
-  -webkit-transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  visibility: hidden;
+  -webkit-transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   opacity: 0;
-  left: 23%;
-  top: 15%;
+  visibility: hidden;
+  left: 20%;
+  bottom: 25%;
   padding: 0.6rem;
-  width: 35%;
+  width: 90%;
 }
 
 .directions__cont--active {
-  top: 12%;
+  left: 50%;
   opacity: 1;
   visibility: visible;
 }
 
 .directions__cont--box {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -627,8 +628,8 @@ section {
   height: 100%;
 }
 
-.directions__icons :first-child {
-  padding-bottom: 1.7rem;
+.directions__icons:first-child {
+  margin-right: 0.2rem;
 }
 
 .directions__icon {
@@ -639,6 +640,11 @@ section {
 .directions__icon img {
   height: auto;
   width: 100%;
+}
+
+.directions__icon:last-child {
+  position: absolute;
+  left: 54%;
 }
 
 .mapbox-directions-origin {
@@ -665,22 +671,22 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  color: #c0c0c0;
+  color: #1e3d59;
 }
 
 .mapbox-directions-route-summary h1,
 .mapbox-directions-route-summary span {
   font-size: 0.8rem;
-  padding: 0.3rem;
+  font-weight: 400;
+}
+
+.mapbox-directions-route-summary h1 {
+  padding-right: 2rem;
 }
 
 .mapboxgl-ctrl-geocoder {

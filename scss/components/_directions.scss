@@ -12,46 +12,40 @@
 		position: fixed;
 		transform: translateX(-50%);
 
-		background: #ffffff;
-		box-shadow: 0px 7px 7px 3px rgba(0, 0, 0, 0.1);
+		background: $colour-gold;
+		box-shadow: 0px 7px 7px 1px rgba(0, 0, 0, 0.2);
 		border-radius: 10px;
 		z-index: 110;
-		transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-		// left: 50%;
-		// top: 3%;
-		// padding: 0.7rem;
-		// width: 90%;
-		visibility: hidden;
 		opacity: 0;
-		// top: 6%;
-
-		left: 23%;
-		top: 15%;
+		visibility: hidden;
+		left: 20%;
+		bottom: 25%;
 		padding: 0.6rem;
-		width: 35%;
+		width: 90%;
 		// opacity: 1;
 		// visibility: visible;
 
 		&--active {
-			top: 12%;
+			left: 50%;
 			opacity: 1;
 			visibility: visible;
 		}
 
 		&--box {
+			position: relative;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			width: 100%;
-			// padding: 0.3rem 0.5rem 0 0.8rem;
 		}
 	}
 
 	&__icons {
 		height: 100%;
-		:first-child {
-			padding-bottom: 1.7rem;
+		&:first-child {
+			margin-right: 0.2rem;
 		}
 	}
 
@@ -62,15 +56,11 @@
 			height: auto;
 			width: 100%;
 		}
+		&:last-child {
+			position: absolute;
+			left: 54%;
+		}
 	}
-	// &__dot {
-	// 	border: none;
-	// 	width: 0.2rem;
-	// 	height: 0.2rem;
-	// 	margin: 0.2rem;
-	// 	border-radius: 50%;
-	// 	background-color: $font-colour-search;
-	// }
 }
 
 .mapbox-directions {
@@ -95,15 +85,18 @@
 	}
 	&-route-summary {
 		display: flex;
-		flex-direction: column;
-		align-items: baseline;
+		align-items: center;
 		justify-content: space-around;
-		color: $font-colour-search;
+		color: $colour-navy;
 
 		& h1,
 		& span {
 			font-size: $font-small;
-			padding: 0.3rem;
+			font-weight: 400;
+		}
+
+		& h1 {
+			padding-right: 2rem;
 		}
 	}
 }
