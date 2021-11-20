@@ -40,8 +40,8 @@
 						email using the form below
 					</p>
 				</div>
-				<form
-					action="https://formspree.io/f/mjvjqnpz"
+				<!-- <form
+					action="https://submit-form.com/BqqbKfXe"
 					method="POST"
 					class="flex flex__dir-col flex__jc-center"
 				>
@@ -64,7 +64,45 @@
 							rows="5"
 						></textarea>
 					</label>
-					<!-- your other form fields go here -->
+					<button
+						type="submit"
+						class="contact flex flex__ai-center flex__jc-center"
+					>
+						<ion-icon name="paper-plane"></ion-icon>
+						<span class="contact__send">Send!</span>
+					</button>
+				</form> -->
+				<form
+					action="https://submit-form.com/BqqbKfXe"
+					class="flex flex__dir-col flex__jc-center"
+					target="_blank"
+				>
+					<label for="name" class="flex flex__dir-col">Name</label>
+					<input
+						type="text"
+						id="name"
+						name="name"
+						placeholder="Name"
+						required=""
+						class="contact__input contact__input--02"
+					/>
+					<label for="email">Email</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						placeholder="Email"
+						required=""
+						class="contact__input contact__input--02"
+					/>
+					<label for="message">Message</label>
+					<textarea
+						id="message"
+						name="message"
+						placeholder="Message"
+						class="contact__input contact__input--02"
+						required=""
+					></textarea>
 					<button
 						type="submit"
 						class="contact flex flex__ai-center flex__jc-center"

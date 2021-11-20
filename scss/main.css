@@ -586,7 +586,7 @@ section {
 }
 
 .directions__cont {
-  position: fixed;
+  position: absolute;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   background: #ffc13b;
@@ -599,7 +599,7 @@ section {
   opacity: 0;
   visibility: hidden;
   left: 20%;
-  bottom: 25%;
+  bottom: 29%;
   padding: 0.6rem;
   width: 90%;
 }

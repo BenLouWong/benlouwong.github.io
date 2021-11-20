@@ -9,7 +9,7 @@
 
 .directions {
 	&__cont {
-		position: fixed;
+		position: absolute;
 		transform: translateX(-50%);
 
 		background: $colour-gold;
@@ -21,7 +21,7 @@
 		opacity: 0;
 		visibility: hidden;
 		left: 20%;
-		bottom: 25%;
+		bottom: 29%;
 		padding: 0.6rem;
 		width: 90%;
 		// opacity: 1;
