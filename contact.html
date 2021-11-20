@@ -76,6 +76,7 @@
 					action="https://submit-form.com/BqqbKfXe"
 					class="flex flex__dir-col flex__jc-center"
 					target="_blank"
+					data-botpoison-public-key="pk_ca27b3ee-0573-45f5-ab71-831120897a50"
 				>
 					<label for="name" class="flex flex__dir-col">Name</label>
 					<input
@@ -102,7 +103,13 @@
 						placeholder="Message"
 						class="contact__input contact__input--02"
 						required=""
+						cols="30"
+						rows="5"
 					></textarea>
+					<div
+						class="h-captcha"
+						data-sitekey="bfb8e208-06fa-4daa-9b8d-cbc6715ff0e3"
+					></div>
 					<button
 						type="submit"
 						class="contact flex flex__ai-center flex__jc-center"
@@ -123,5 +130,6 @@
 			nomodule
 			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
 		></script>
+		<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 	</body>
 </html>
