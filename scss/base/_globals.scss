@@ -47,10 +47,15 @@ section {
 .paragraph {
 	color: $font-colour-primary;
 	font-size: $font-small;
+
+	@include respond(tab-port) {
+		font-size: $font-small-med;
+		line-height: 2rem;
+	}
 }
 
 .listFavHeader {
-	position: static;
+	position: fixed;
 	top: 0;
 	line-height: 2.3rem;
 	justify-content: start;
@@ -66,4 +71,17 @@ section {
 	&__2 {
 		margin-top: 0rem;
 	}
+}
+
+.centerDesktop {
+	@include respond(tab-port) {
+		padding: 3rem 15%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.spaceTop {
+	margin-top: 4rem;
 }

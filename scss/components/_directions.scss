@@ -31,6 +31,13 @@
 			left: 50%;
 			opacity: 1;
 			visibility: visible;
+			@include respond(tab-port) {
+				bottom: 30%;
+				transform: translateX(0);
+				left: 1.5%;
+				height: 15%;
+				width: 21%;
+			}
 		}
 
 		&--box {
@@ -93,6 +100,9 @@
 		& span {
 			font-size: $font-small;
 			font-weight: 400;
+			@include respond(tab-port) {
+				font-size: $font-small-med;
+			}
 		}
 
 		& h1 {

@@ -15,6 +15,12 @@
 	visibility: hidden;
 	bottom: -5%;
 
+	@include respond(tab-port) {
+		transform: translate(0);
+		left: 1.5%;
+		width: 25rem;
+	}
+
 	// bottom: 1%;
 	// opacity: 1;
 	// visibility: visible;
@@ -78,6 +84,10 @@
 		bottom: -1%;
 		opacity: 1;
 		visibility: visible;
+
+		@include respond(tab-port) {
+			bottom: 7%;
+		}
 	}
 }
 

@@ -12,6 +12,10 @@
 		// margin-left: 0.5rem;
 		transition: width 0.3s ease-in-out;
 
+		@include respond(tab-port) {
+			width: 100%;
+		}
+
 		&--input {
 			&:focus {
 				outline: none;
@@ -21,10 +25,19 @@
 		&--button {
 			background-color: transparent;
 			transform: translateY(-4px);
+
+			@include respond(tab-port) {
+				transform: translateY(3px);
+				margin-right: 0.2rem;
+			}
 		}
 		&--icon {
 			&-search {
 				top: 25%;
+				@include respond(tab-port) {
+					margin-left: 0.2rem;
+					top: 27%;
+				}
 			}
 		}
 	}
@@ -34,4 +47,8 @@
 	display: flex;
 	align-items: center;
 	width: 78%;
+
+	@include respond(tab-port) {
+		width: 100%;
+	}
 }

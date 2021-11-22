@@ -37,6 +37,11 @@
 		border: none;
 		font-size: $font-med-large;
 		padding-right: 0.8rem;
+
+		@include respond(tab-port) {
+			position: absolute;
+			left: 8%;
+		}
 	}
 	&__heading {
 		font-size: $font-sidebar;
@@ -94,6 +99,11 @@
 	bottom: 2%;
 	left: 9.5rem;
 	transform: translateX(-50%);
+
+	@include respond(tab-port) {
+		left: 50%;
+	}
+
 	& a {
 		text-decoration: none;
 		color: $font-colour-primary;
