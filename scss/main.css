@@ -508,6 +508,12 @@ section {
   background-color: white;
 }
 
+@media only screen and (min-width: 56.25em) {
+  .description {
+    width: 40vw;
+  }
+}
+
 .description__active {
   bottom: 0;
   opacity: 1;
@@ -550,7 +556,7 @@ section {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: 13.5rem;
 }
 
