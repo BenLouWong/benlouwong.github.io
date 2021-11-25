@@ -29,6 +29,11 @@
 			filter: brightness(0.8);
 			width: auto;
 			height: 100vh;
+
+			@include respond(tab-port) {
+				width: 100vw;
+				height: auto;
+			}
 		}
 	}
 }

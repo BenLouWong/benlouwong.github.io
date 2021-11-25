@@ -31,9 +31,12 @@ const btnFav = document.querySelector(".cardBtn__fav");
 const btnMore = document.querySelector(".cardBtn__more");
 const directionsCont = document.querySelector(".directions__cont");
 const directionsBack = document.querySelector(".backArrow__directions");
+const descriptionOverlay = document.querySelector(".description__overlay");
 
 let favourites = [];
 let html;
+
+console.log(innerWidth);
 
 mapboxgl.accessToken =
 	"pk.eyJ1IjoiYmVubHciLCJhIjoiY2t2N2p1YTQ4OWtsbzJwbWFxbGlxeTR5aSJ9.h-C9wZFdtTINvHwcJXKfMg";
@@ -64,6 +67,32 @@ const createCard = function (currentFeature) {
 	cardImg.innerHTML = imgHtml;
 	// cardRating.insertAdjacentHTML("afterend", currentFeature.properties.rating);
 };
+
+// ////////////// Render Description
+const renderDescription = function (marker) {
+	description.classList.add("description__active");
+	let descrHtml = `
+            <h2 class="
+                heading-1
+                description__heading description__heading--01
+            ">
+            ${marker.properties.title}
+            </h2>
+            <h3
+                class="
+                    heading-3
+                    description__heading description__heading--02
+                ">
+            ${marker.properties.address}, ${marker.properties.city}, ${marker.properties.state}, ${marker.properties.postalCode}
+            </h3>`;
+	let overviewHTML = `<p>${marker.properties.overview}</p>`;
+	let descrHTML = `<p>${marker.properties.recommendations}</p>`;
+	descHeadings.innerHTML = descrHtml;
+	descOverview.innerHTML = overviewHTML;
+	descRecomm.innerHTML = descrHTML;
+	// descriptionOverlay.classList.add("description__overlay--active");
+};
+
 const closeCard = function () {
 	card.classList.remove("card__active");
 };
@@ -273,24 +302,25 @@ const setupMap = function (center) {
 		btnMore.addEventListener("click", () => {
 			description.classList.add("description__active");
 			let descrHtml = `
-            <h2 class="
-                heading-1
-                description__heading description__heading--01
-            ">
-            ${marker.properties.title}
-            </h2>
-            <h3
-                class="
-                    heading-3
-                    description__heading description__heading--02
-                ">
-            ${marker.properties.address}, ${marker.properties.city}, ${marker.properties.state}, ${marker.properties.postalCode}
-            </h3>`;
+		<h2 class="
+		    heading-1
+		    description__heading description__heading--01
+		">
+		${marker.properties.title}
+		</h2>
+		<h3
+		    class="
+		        heading-3
+		        description__heading description__heading--02
+		    ">
+		${marker.properties.address}, ${marker.properties.city}, ${marker.properties.state}, ${marker.properties.postalCode}
+		</h3>`;
 			let overviewHTML = `<p>${marker.properties.overview}</p>`;
 			let descrHTML = `<p>${marker.properties.recommendations}</p>`;
 			descHeadings.innerHTML = descrHtml;
 			descOverview.innerHTML = overviewHTML;
 			descRecomm.innerHTML = descrHTML;
+			descriptionOverlay.classList.add("description__overlay--active");
 		});
 
 		descrBtn.addEventListener("click", () => {
@@ -298,11 +328,12 @@ const setupMap = function (center) {
 			directions.setDestination(marker.geometry.coordinates);
 			directionsCont.classList.add("directions__cont--active");
 			description.classList.remove("description__active");
+			descriptionOverlay.classList.remove("description__overlay--active");
 		});
 
 		flyTo(marker);
 		createPin(marker);
-		createCard(marker);
+		innerWidth <= 600 ? createCard(marker) : renderDescription(marker);
 	};
 
 	// ////////////// Add custom markers to cafe locations
@@ -312,7 +343,7 @@ const setupMap = function (center) {
 			const el = document.createElement("div");
 			/* Assign a unique `id` to the marker. */
 			el.id = `markerCafe-${marker.properties.id}`;
-			console.log(`${marker.properties.id}`);
+			// console.log(`${marker.properties.id}`);
 			/* Assign the `marker` class to each marker for styling. */
 			el.className = "markerCafe";
 
@@ -370,6 +401,7 @@ directionsBack.addEventListener("click", () => {
 // CLose description
 descriptionClose.addEventListener("click", () => {
 	description.classList.remove("description__active");
+	descriptionOverlay.classList.remove("description__overlay--active");
 });
 
 // Description - image swiper

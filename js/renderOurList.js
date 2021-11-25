@@ -8,6 +8,7 @@ const descriptionClose = document.querySelector(".description__close");
 const descHeadings = document.querySelector(".description__headings");
 const descOverview = document.querySelector(".overviewCont");
 const descRecomm = document.querySelector(".descrCont");
+const descriptionOverlay = document.querySelector(".description__overlay");
 
 const renderList = function () {
 	stores.features.forEach((i) => {
@@ -60,10 +61,14 @@ const renderList = function () {
 				descHeadings.innerHTML = descrHtml;
 				descOverview.innerHTML = overviewHTML;
 				descRecomm.innerHTML = recommHTML;
+				descriptionOverlay.classList.add(
+					"description__overlay--active"
+				);
 			});
 	});
 	descriptionClose.addEventListener("click", () => {
 		description.classList.remove("description__active");
+		descriptionOverlay.classList.remove("description__overlay--active");
 	});
 };
 

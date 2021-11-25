@@ -56,7 +56,7 @@
 		opacity: 0;
 		visibility: hidden;
 		z-index: 114;
-		background-color: rgba(#000000, 0.6);
+		background-color: $colour-overlay-black;
 		transition: all 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
 		&--active {
