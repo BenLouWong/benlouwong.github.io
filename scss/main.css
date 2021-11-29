@@ -683,6 +683,15 @@ section {
   width: 90%;
 }
 
+@media only screen and (min-width: 56.25em) {
+  .directions__cont {
+    left: 0;
+    top: 12%;
+    padding: 0.6rem;
+    width: 150%;
+  }
+}
+
 .directions__cont--active {
   left: 50%;
   opacity: 1;
@@ -694,9 +703,9 @@ section {
     bottom: 30%;
     -webkit-transform: translateX(0);
             transform: translateX(0);
-    left: 1.5%;
-    height: 15%;
-    width: 21%;
+    left: 1%;
+    height: 7%;
+    width: 15%;
   }
 }
 

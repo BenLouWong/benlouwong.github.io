@@ -27,6 +27,13 @@
 		// opacity: 1;
 		// visibility: visible;
 
+		@include respond(tab-port) {
+			left: 0;
+			top: 12%;
+			padding: 0.6rem;
+			width: 150%;
+		}
+
 		&--active {
 			left: 50%;
 			opacity: 1;
@@ -34,9 +41,9 @@
 			@include respond(tab-port) {
 				bottom: 30%;
 				transform: translateX(0);
-				left: 1.5%;
-				height: 15%;
-				width: 21%;
+				left: 1%;
+				height: 7%;
+				width: 15%;
 			}
 		}
 
