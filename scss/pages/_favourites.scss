@@ -1,6 +1,13 @@
 .favCard {
-	justify-content: flex-start;
 	padding-bottom: 1.5rem;
+	width: 100%;
+
+	&__hidden {
+		visibility: hidden;
+		opacity: 0;
+		display: none;
+	}
+
 	&__img {
 		height: 3.5rem;
 		width: 3.5rem;
@@ -26,6 +33,46 @@
 		border: none;
 		margin: 0;
 		color: $font-colour-primary;
+	}
+	&__remove {
+		color: $font-colour-primary;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		cursor: pointer;
+		background: transparent;
+		transition: all 0.6s ease;
+		font-size: $font-med;
+		border-radius: 0.5rem;
+		padding: 0.5rem;
+
+		&:hover {
+			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+		}
+		&--cont {
+			position: absolute;
+			right: 4.5rem;
+			// margin-top: 4.5rem;
+			border-radius: 0.3rem;
+			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+			transform: translateY(3px);
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s ease-in-out;
+			background-color: $colour-orange-vibrant-dark;
+
+			&-active {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
+		}
+
+		&--menu {
+			font-size: $font-small;
+			color: white;
+		}
 	}
 }
 
